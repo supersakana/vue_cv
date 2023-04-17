@@ -1,17 +1,16 @@
 <template>
-  <h1 class="text-4xl bg-emerald-300">VueCV</h1>
+  <div>
+    <CvForm />
+  </div>
 </template>
 
 <script>
-// import Component from ./components/Component.vue
+import CvForm from './components/CvForm'
 
 export default {
   name: 'App',
   components: {
+    CvForm
   }
 }
 </script>
-
-<style>
-
-</style>
