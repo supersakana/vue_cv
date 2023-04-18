@@ -1,16 +1,19 @@
 <template>
-  <div>
+  <div class="flex">
     <CvForm @update-contents="updateContents" />
+    <CvDoc />
   </div>
 </template>
 
 <script>
 import CvForm from './components/CvForm'
+import CvDoc from './components/CvDoc.vue'
 
 export default {
   name: 'App',
   components: {
-    CvForm
+    CvForm,
+    CvDoc
   },
   methods: {
     updateContents(value){
