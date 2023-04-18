@@ -78,7 +78,7 @@ export default {
       e.preventDefault
     },
     onInput(e){
-      this.$emit('update-contents', e.target.value)
+      this.$emit('update-contents', e)
     }
   }
 }

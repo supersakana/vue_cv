@@ -1,7 +1,7 @@
 <template>
   <div class="flex">
     <CvForm @update-contents="updateContents" />
-    <CvDoc />
+    <CvDoc :contents="contents" />
   </div>
 </template>
 
@@ -16,8 +16,11 @@ export default {
     CvDoc
   },
   methods: {
-    updateContents(value){
-      console.log(value)
+    updateContents(e){
+      const updated = {...this.contents}
+      updated[e.target.id] = e.target.value
+
+      this.contents = updated
     }
   },
   data(){
