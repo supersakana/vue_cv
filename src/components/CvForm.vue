@@ -38,22 +38,22 @@
         <div id="education-form" v-if="toggles['education']">
           <div className="form-control">
             <label htmlFor='university'>University</label>
-            <input id='university' type='text' placeholder='University of Example' @input="onInput" />
+            <input id='university' :value='contents.education[0].university' type='text' placeholder='University of Example' @input="onInput($event, 'education')" />
           </div>
 
           <div className="form-control">
             <label htmlFor='degree'>Degree</label>
-            <input id='degree' type='text' placeholder='Degree Title' @input="onInput" />
+            <input id='degree' type='text' placeholder='Degree Title' @input="onInput($event, 'education')" />
           </div>
 
           <div className="form-control">
             <label htmlFor='from_uni'>From</label>
-            <input id='from_uni' type='date' @input="onInput" />
+            <input id='from_uni' type='date' @input="onInput($event, 'education')" />
           </div>
 
           <div className="form-control">
             <label htmlFor='to_uni'>To</label>
-            <input id='to_uni' type='date' @input="onInput" />
+            <input id='to_uni' type='date' @input="onInput($event, 'education')" />
           </div>
         </div>
       </div>
@@ -69,27 +69,27 @@
         <div id="experience-form" v-if="toggles['experience']">
           <div className="form-control">
             <label htmlFor='company'>Company</label>
-            <input id='company' type='text' placeholder='Company Name' @input="onInput" />
+            <input id='company' type='text' placeholder='Company Name' @input="onInput($event, 'experience')" />
           </div>
 
           <div className="form-control">
             <label htmlFor='position'>Position</label>
-            <input id='position' type='text' placeholder='Position Title' @input="onInput" />
+            <input id='position' type='text' placeholder='Position Title' @input="onInput($event, 'experience')" />
           </div>
 
           <div className="form-control">
             <label htmlFor='company'>Description</label>
-            <textarea id='description' placeholder='A description of your job here' @input="onInput" />
+            <textarea id='description' placeholder='A description of your job here' @input="onInput($event, 'experience')" />
           </div>
 
           <div className="form-control">
             <label htmlFor='from_comp'>From</label>
-            <input id='from_comp' type='date' @input="onInput" />
+            <input id='from_comp' type='date' @input="onInput($event, 'experience')" />
           </div>
 
           <div className="form-control">
             <label htmlFor='to_comp'>To</label>
-            <input id='to_comp' type='date' @input="onInput" />
+            <input id='to_comp' type='date' @input="onInput($event, 'experience')" />
           </div>
         </div>
       </div>
@@ -101,12 +101,15 @@
 <script>
 export default {
   name: 'CvForm',
+  props: {
+    contents: Object
+    },
   methods: {
     onSubmit(e) {
       e.preventDefault
     },
-    onInput(e){
-      this.$emit('update-contents', e)
+    onInput(e, form = 'general'){
+      this.$emit('update-contents', e, form)
     },
     onFormToggle(e, form){
       this.toggles[form] = !this.toggles[form]
