@@ -6,10 +6,10 @@
       <div>
         <div class="flex items-center justify-between">
           <h4 className="section-title">General</h4>
-          <ion-icon name="caret-up" @click="onFormToggle" class="cursor-pointer hover:text-gray-600 text-2xl"></ion-icon>
+          <ion-icon name="caret-up" @click="onFormToggle($event, 'general')" class="cursor-pointer hover:text-gray-600 text-2xl"></ion-icon>
         </div>
 
-        <div id="general-form">
+        <div id="general-form" v-if="toggles['general']">
           <div className="form-control">
             <label htmlFor='name'>Name</label>
             <input id='name' type='text' placeholder="John Doe" @input="onInput" />
@@ -32,10 +32,10 @@
       <div>
         <div class="flex items-center justify-between">
           <h4 className="section-title">Education</h4>
-          <ion-icon name="caret-up" @click="onFormToggle" class="cursor-pointer hover:text-gray-600 text-2xl"></ion-icon>
+          <ion-icon name="caret-up" @click="onFormToggle($event, 'education')" class="cursor-pointer hover:text-gray-600 text-2xl"></ion-icon>
         </div>
 
-        <div id="education-form">
+        <div id="education-form" v-if="toggles['education']">
           <div className="form-control">
             <label htmlFor='university'>University</label>
             <input id='university' type='text' placeholder='University of Example' @input="onInput" />
@@ -63,10 +63,10 @@
       <div>
         <div class="flex items-center justify-between">
           <h4 className="section-title">Experience</h4>
-          <ion-icon name="caret-up" @click="onFormToggle" class="cursor-pointer hover:text-gray-600 text-2xl"></ion-icon>
+          <ion-icon name="caret-up" @click="onFormToggle($event, 'experience')" class="cursor-pointer hover:text-gray-600 text-2xl"></ion-icon>
         </div>
 
-        <div id="experience-form">
+        <div id="experience-form" v-if="toggles['experience']">
           <div className="form-control">
             <label htmlFor='company'>Company</label>
             <input id='company' type='text' placeholder='Company Name' @input="onInput" />
@@ -108,7 +108,9 @@ export default {
     onInput(e){
       this.$emit('update-contents', e)
     },
-    onFormToggle(e){
+    onFormToggle(e, form){
+      this.toggles[form] = !this.toggles[form]
+
       e.target.name === 'caret-up' ? 
       e.target.name = 'caret-down' : e.target.name = 'caret-up'
     }
@@ -116,9 +118,9 @@ export default {
   data(){
     return {
       toggles: {
-        general: false,
-        education: false,
-        experience: false
+        general: true,
+        education: true,
+        experience: true
       }
     }
   },
