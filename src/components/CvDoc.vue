@@ -6,18 +6,22 @@
 
       <br>
 
-      <p>{{ contents.university }}</p>
-      <p>{{ contents.degree }}</p>
-      <p>{{ contents.from_uni }}</p>
-      <p>{{ contents.to_uni }}</p>
+      <div :key="edu.id" v-for="edu in contents.education">
+        <p>{{ edu.university }}</p>
+        <p>{{ edu.degree }}</p>
+        <p>{{ edu.from_uni }}</p>
+        <p>{{ edu.to_uni }}</p>
+      </div>
 
       <br>
 
-      <p>{{ contents.company }}</p>
-      <p>{{ contents.position }}</p>
-      <p>{{ contents.description }}</p>
-      <p>{{ contents.from_comp }}</p>
-      <p>{{ contents.to_comp }}</p>
+      <div :key="exp.id" v-for="exp in contents.experience">
+        <p>{{ exp.company }}</p>
+        <p>{{ exp.position }}</p>
+        <p>{{ exp.description }}</p>
+        <p>{{ exp.from_comp }}</p>
+        <p>{{ exp.to_comp }}</p>
+      </div>
     </div>
 </template>
 
