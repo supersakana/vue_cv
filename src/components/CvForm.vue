@@ -12,17 +12,17 @@
         <div id="general-form" v-if="toggles['general']">
           <div className="form-control">
             <label htmlFor='name'>Name</label>
-            <input id='name' type='text' placeholder="John Doe" @input="onInput" />
+            <input id='name' :value='contents.name' type='text' placeholder="John Doe" @input="onInput" />
           </div>
 
           <div className="form-control">
             <label htmlFor='email'>Email</label>
-            <input id='email' type='email' placeholder='example@this.com' @input="onInput" />
+            <input id='email' :value='contents.email' type='email' placeholder='example@this.com' @input="onInput" />
           </div>
 
           <div className="form-control">
             <label htmlFor='phone'>Phone</label>
-            <input id='phone' type='phone' placeholder='+1 (123)-456-789' @input="onInput" />
+            <input id='phone' :value='contents.phone' type='phone' placeholder='+1 (123)-456-789' @input="onInput" />
           </div>
         </div>
       </div>
@@ -43,17 +43,17 @@
 
           <div className="form-control">
             <label htmlFor='degree'>Degree</label>
-            <input id='degree' type='text' placeholder='Degree Title' @input="onInput($event, 'education')" />
+            <input id='degree' :value='contents.education[0].degree' type='text' placeholder='Degree Title' @input="onInput($event, 'education')" />
           </div>
 
           <div className="form-control">
             <label htmlFor='from_uni'>From</label>
-            <input id='from_uni' type='date' @input="onInput($event, 'education')" />
+            <input id='from_uni' :value='contents.education[0].from_uni' type='date' @input="onInput($event, 'education')" />
           </div>
 
           <div className="form-control">
             <label htmlFor='to_uni'>To</label>
-            <input id='to_uni' type='date' @input="onInput($event, 'education')" />
+            <input id='to_uni' :value='contents.education[0].to_uni' type='date' @input="onInput($event, 'education')" />
           </div>
         </div>
       </div>
@@ -69,27 +69,27 @@
         <div id="experience-form" v-if="toggles['experience']">
           <div className="form-control">
             <label htmlFor='company'>Company</label>
-            <input id='company' type='text' placeholder='Company Name' @input="onInput($event, 'experience')" />
+            <input id='company' :value='contents.experience[0].company' type='text' placeholder='Company Name' @input="onInput($event, 'experience')" />
           </div>
 
           <div className="form-control">
             <label htmlFor='position'>Position</label>
-            <input id='position' type='text' placeholder='Position Title' @input="onInput($event, 'experience')" />
+            <input id='position' :value='contents.experience[0].position' type='text' placeholder='Position Title' @input="onInput($event, 'experience')" />
           </div>
 
           <div className="form-control">
             <label htmlFor='company'>Description</label>
-            <textarea id='description' placeholder='A description of your job here' @input="onInput($event, 'experience')" />
+            <textarea id='description' :value='contents.experience[0].description' placeholder='A description of your job here' @input="onInput($event, 'experience')" />
           </div>
 
           <div className="form-control">
             <label htmlFor='from_comp'>From</label>
-            <input id='from_comp' type='date' @input="onInput($event, 'experience')" />
+            <input id='from_comp' :value='contents.experience[0].from_comp' type='date' @input="onInput($event, 'experience')" />
           </div>
 
           <div className="form-control">
             <label htmlFor='to_comp'>To</label>
-            <input id='to_comp' type='date' @input="onInput($event, 'experience')" />
+            <input id='to_comp' :value='contents.experience[0].to_comp'  type='date' @input="onInput($event, 'experience')" />
           </div>
         </div>
       </div>
