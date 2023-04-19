@@ -26,18 +26,18 @@ export default {
   data(){
     return {
       contents: {
-        name: '',
-        email: '',
-        phone: '',
-        university: '',
-        degree: '',
-        from_uni: '',
-        to_uni: '',
-        company: '',
-        position: '',
-        description: '',
-        from_comp: '',
-        to_comp: ''
+        name: 'John Doe',
+        email: 'johndoe@example.com',
+        phone: '+1 (234)-567-890',
+        university: 'Universtiy of Example',
+        degree: 'Degree Title',
+        from_uni: '2020-09-01',
+        to_uni: '2020-09-01',
+        company: 'Company Title',
+        position: 'Position Title',
+        description: 'Write a simple description here of what you did',
+        from_comp: '2020-09-01',
+        to_comp: '2020-09-01'
       }
     }
   }
