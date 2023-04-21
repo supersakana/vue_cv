@@ -20,9 +20,13 @@ export default {
   methods: {
     updateContents(e, form){
       const updated = {...this.contents}
+      const id = e.target.getAttribute('data-id')
+      const input = e.target.getAttribute('data-input')
+
+      console.log(id, input)
       
       if(form !== 'general'){
-        updated[form][0][e.target.id] = e.target.value
+        updated[form].find((section) => section.id === id)[input] = e.target.value
       } else {
         updated[e.target.id] = e.target.value
       }
@@ -37,14 +41,14 @@ export default {
         phone: '+1 (234)-567-890',
         education: [
           {
-            id: 1,
+            id: '0',
             university: 'Universtiy of Example',
             degree: 'Degree Title',
             from_uni: '2020-09-01',
             to_uni: '2020-09-01',
           },
           {
-            id: 2,
+            id: '1',
             university: 'VCU',
             degree: 'Degree Title',
             from_uni: '2020-09-01',
@@ -53,7 +57,7 @@ export default {
         ],
         experience: [
           {
-            id: 1,
+            id: '0',
             company: 'Chipotle',
             position: 'Position Title',
             description: 'Write a simple description here of what you did',
@@ -61,7 +65,7 @@ export default {
             to_comp: '2020-09-01'
           },
           {
-            id: 2,
+            id: '1',
             company: 'Canzell',
             position: 'Software Dev',
             description: 'Write a simple description here of what you did',
