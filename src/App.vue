@@ -22,8 +22,6 @@ export default {
       const updated = {...this.contents}
       const id = e.target.getAttribute('data-id')
       const input = e.target.getAttribute('data-input')
-
-      console.log(id, input)
       
       if(form !== 'general'){
         updated[form].find((section) => section.id === id)[input] = e.target.value

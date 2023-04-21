@@ -75,27 +75,27 @@
 
             <div className="form-control">
               <label htmlFor='company'>Company</label>
-              <input :id="'company-' + exp.id" :value='exp.company' type='text' placeholder='Example Co' @input="onInput($event, 'experience')" />
+              <input :id="'company-' + exp.id" :data-id="exp.id" data-input="company" :value='exp.company' type='text' placeholder='Example Co' @input="onInput($event, 'experience')" />
             </div>
 
             <div className="form-control">
               <label htmlFor='position'>Position</label>
-              <input :id="'position-' + exp.id" :value='exp.position' type='text' placeholder='Position' @input="onInput($event, 'experience')" />
+              <input :id="'position-' + exp.id" :data-id="exp.id" data-input="position" :value='exp.position' type='text' placeholder='Position' @input="onInput($event, 'experience')" />
             </div>
 
             <div className="form-control">
               <label htmlFor='company'>Description</label>
-              <textarea :id="'description-' + exp.id" :value='exp.description' placeholder='A description of your job here' @input="onInput($event, 'experience')" />
+              <textarea :id="'description-' + exp.id" :data-id="exp.id" data-input="description" :value='exp.description' placeholder='A description of your job here' @input="onInput($event, 'experience')" />
             </div>
 
             <div className="form-control">
               <label htmlFor='from_comp'>From</label>
-              <input :id="'from-comp-' + exp.id" :value='exp.from_comp' type='date' @input="onInput($event, 'experience')" />
+              <input :id="'from-comp-' + exp.id" :data-id="exp.id" data-input="from_comp" :value='exp.from_comp' type='date' @input="onInput($event, 'experience')" />
             </div>
 
             <div className="form-control">
               <label htmlFor='to_comp'>To</label>
-              <input :id="'to-comp-' + exp.id" :value='exp.to_comp'  type='date' @input="onInput($event, 'experience')" />
+              <input :id="'to-comp-' + exp.id" :data-id="exp.id" data-input="to_comp" :value='exp.to_comp'  type='date' @input="onInput($event, 'experience')" />
             </div>
             
           </div>
