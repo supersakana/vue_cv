@@ -36,24 +36,28 @@
         </div>
 
         <div id="education-form" v-if="toggles['education']">
-          <div className="form-control">
-            <label htmlFor='university'>University</label>
-            <input id='university' :value='contents.education[0].university' type='text' placeholder='University of Example' @input="onInput($event, 'education')" />
-          </div>
+          <div :key="edu.id" v-for="edu in contents.education">
 
-          <div className="form-control">
-            <label htmlFor='degree'>Degree</label>
-            <input id='degree' :value='contents.education[0].degree' type='text' placeholder='Degree Title' @input="onInput($event, 'education')" />
-          </div>
+            <div className="form-control">
+              <label htmlFor='university'>University</label>
+              <input :id="'university-' + edu.id" :value='edu.university' type='text' placeholder='University of Example' @input="onInput($event, 'education')" />
+            </div>
 
-          <div className="form-control">
-            <label htmlFor='from_uni'>From</label>
-            <input id='from_uni' :value='contents.education[0].from_uni' type='date' @input="onInput($event, 'education')" />
-          </div>
+            <div className="form-control">
+              <label htmlFor='degree'>Degree</label>
+              <input :id="'degree-' + edu.id" :value='edu.degree' type='text' placeholder='BS in Example Science' @input="onInput($event, 'education')" />
+            </div>
 
-          <div className="form-control">
-            <label htmlFor='to_uni'>To</label>
-            <input id='to_uni' :value='contents.education[0].to_uni' type='date' @input="onInput($event, 'education')" />
+            <div className="form-control">
+              <label htmlFor='from_uni'>From</label>
+              <input :id="'from-uni-' + edu.id" :value='edu.from_uni' type='date' @input="onInput($event, 'education')" />
+            </div>
+
+            <div className="form-control">
+              <label htmlFor='to_uni'>To</label>
+              <input :id="'to-uni-' + edu.id" :value='edu.to_uni' type='date' @input="onInput($event, 'education')" />
+            </div>
+            
           </div>
         </div>
       </div>
@@ -67,29 +71,33 @@
         </div>
 
         <div id="experience-form" v-if="toggles['experience']">
-          <div className="form-control">
-            <label htmlFor='company'>Company</label>
-            <input id='company' :value='contents.experience[0].company' type='text' placeholder='Company Name' @input="onInput($event, 'experience')" />
-          </div>
+          <div :key="exp.id" v-for="exp in contents.experience">
 
-          <div className="form-control">
-            <label htmlFor='position'>Position</label>
-            <input id='position' :value='contents.experience[0].position' type='text' placeholder='Position Title' @input="onInput($event, 'experience')" />
-          </div>
+            <div className="form-control">
+              <label htmlFor='company'>Company</label>
+              <input :id="'company-' + exp.id" :value='exp.company' type='text' placeholder='Example Co' @input="onInput($event, 'experience')" />
+            </div>
 
-          <div className="form-control">
-            <label htmlFor='company'>Description</label>
-            <textarea id='description' :value='contents.experience[0].description' placeholder='A description of your job here' @input="onInput($event, 'experience')" />
-          </div>
+            <div className="form-control">
+              <label htmlFor='position'>Position</label>
+              <input :id="'position-' + exp.id" :value='exp.position' type='text' placeholder='Position' @input="onInput($event, 'experience')" />
+            </div>
 
-          <div className="form-control">
-            <label htmlFor='from_comp'>From</label>
-            <input id='from_comp' :value='contents.experience[0].from_comp' type='date' @input="onInput($event, 'experience')" />
-          </div>
+            <div className="form-control">
+              <label htmlFor='company'>Description</label>
+              <textarea :id="'description-' + exp.id" :value='exp.description' placeholder='A description of your job here' @input="onInput($event, 'experience')" />
+            </div>
 
-          <div className="form-control">
-            <label htmlFor='to_comp'>To</label>
-            <input id='to_comp' :value='contents.experience[0].to_comp'  type='date' @input="onInput($event, 'experience')" />
+            <div className="form-control">
+              <label htmlFor='from_comp'>From</label>
+              <input :id="'from-comp-' + exp.id" :value='exp.from_comp' type='date' @input="onInput($event, 'experience')" />
+            </div>
+
+            <div className="form-control">
+              <label htmlFor='to_comp'>To</label>
+              <input :id="'to-comp-' + exp.id" :value='exp.to_comp'  type='date' @input="onInput($event, 'experience')" />
+            </div>
+            
           </div>
         </div>
       </div>
@@ -108,11 +116,13 @@ export default {
     onSubmit(e) {
       e.preventDefault
     },
-    onInput(e, form = 'general'){
+    onInput(e, form){
       this.$emit('update-contents', e, form)
     },
     onFormToggle(e, form){
-      this.toggles[form] = !this.toggles[form]
+      const updated = this.toggles
+      updated[form] = !updated[form]
+      this.toggles = updated
 
       e.target.name === 'caret-up' ? 
       e.target.name = 'caret-down' : e.target.name = 'caret-up'
@@ -123,7 +133,7 @@ export default {
       toggles: {
         general: true,
         education: true,
-        experience: true
+        experience: true,
       }
     }
   },
