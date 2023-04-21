@@ -45,13 +45,6 @@ export default {
             from_uni: '2020-09-01',
             to_uni: '2020-09-01',
           },
-          {
-            id: '1',
-            university: 'VCU',
-            degree: 'Degree Title',
-            from_uni: '2020-09-01',
-            to_uni: '2020-09-01',
-          }
         ],
         experience: [
           {
@@ -62,14 +55,6 @@ export default {
             from_comp: '2020-09-01',
             to_comp: '2020-09-01'
           },
-          {
-            id: '1',
-            company: 'Canzell',
-            position: 'Software Dev',
-            description: 'Write a simple description here of what you did',
-            from_comp: '2020-09-01',
-            to_comp: '2020-09-01'
-          }
         ],
       }
     }

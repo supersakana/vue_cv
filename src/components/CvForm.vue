@@ -12,17 +12,32 @@
         <div id="general-form" v-if="toggles['general']">
           <div className="form-control">
             <label htmlFor='name'>Name</label>
-            <input id='name' :value='contents.name' type='text' placeholder="John Doe" @input="onInput($event, 'general')" />
+            <input id='name' 
+                   type='text' 
+                   placeholder="John Doe" 
+                   :value='contents.name' 
+                   @input="onInput($event, 'general')" 
+              />
           </div>
 
           <div className="form-control">
             <label htmlFor='email'>Email</label>
-            <input id='email' :value='contents.email' type='email' placeholder='example@this.com' @input="onInput($event, 'general')" />
+            <input id='email'
+                   type='email' 
+                   placeholder='example@this.com' 
+                   :value='contents.email' 
+                   @input="onInput($event, 'general')" 
+              />
           </div>
 
           <div className="form-control">
             <label htmlFor='phone'>Phone</label>
-            <input id='phone' :value='contents.phone' type='phone' placeholder='+1 (123)-456-789' @input="onInput($event, 'general')" />
+            <input id='phone'  
+                   type='phone' 
+                   placeholder='+1 (123)-456-789'
+                   :value='contents.phone'
+                   @input="onInput($event, 'general')" 
+              />
           </div>
         </div>
       </div>
@@ -40,22 +55,48 @@
 
             <div className="form-control">
               <label htmlFor='university'>University</label>
-              <input :id="'university-' + edu.id" :data-id="edu.id" data-input="university" :value='edu.university' type='text' placeholder='University of Example' @input="onInput($event, 'education')" />
+              <input :id="'university-' + edu.id"
+                     :data-id="edu.id" 
+                     data-input="university" 
+                     :value='edu.university' 
+                     type='text'
+                     placeholder='University of Example'
+                     @input="onInput($event, 'education')" 
+                />
             </div>
 
             <div className="form-control">
               <label htmlFor='degree'>Degree</label>
-              <input :id="'degree-' + edu.id" :data-id="edu.id" data-input="degree" :value='edu.degree' type='text' placeholder='BS in Example Science' @input="onInput($event, 'education')" />
+              <input :id="'degree-' + edu.id" 
+                     :data-id="edu.id" 
+                     data-input="degree" 
+                     :value='edu.degree' 
+                     type='text' 
+                     placeholder='BS in Example Science' 
+                     @input="onInput($event, 'education')" 
+                />
             </div>
 
             <div className="form-control">
               <label htmlFor='from_uni'>From</label>
-              <input :id="'from-uni-' + edu.id" :data-id="edu.id" data-input="from_uni" :value='edu.from_uni' type='date' @input="onInput($event, 'education')" />
+              <input :id="'from-uni-' + edu.id"
+                     :data-id="edu.id"
+                     data-input="from_uni"
+                     :value='edu.from_uni' 
+                     type='date' 
+                     @input="onInput($event, 'education')" 
+                />
             </div>
 
             <div className="form-control">
               <label htmlFor='to_uni'>To</label>
-              <input :id="'to-uni-' + edu.id" :data-id="edu.id" data-input="to_uni" :value='edu.to_uni' type='date' @input="onInput($event, 'education')" />
+              <input :id="'to-uni-' + edu.id"
+                     :data-id="edu.id" 
+                     data-input="to_uni" 
+                     :value='edu.to_uni' 
+                     type='date' 
+                     @input="onInput($event, 'education')"
+                />
             </div>
             
           </div>
@@ -75,27 +116,59 @@
 
             <div className="form-control">
               <label htmlFor='company'>Company</label>
-              <input :id="'company-' + exp.id" :data-id="exp.id" data-input="company" :value='exp.company' type='text' placeholder='Example Co' @input="onInput($event, 'experience')" />
+              <input :id="'company-' + exp.id"
+                     :data-id="exp.id" 
+                     data-input="company" 
+                     :value='exp.company' 
+                     type='text' 
+                     placeholder='Example Co' 
+                     @input="onInput($event, 'experience')" 
+                />
             </div>
 
             <div className="form-control">
               <label htmlFor='position'>Position</label>
-              <input :id="'position-' + exp.id" :data-id="exp.id" data-input="position" :value='exp.position' type='text' placeholder='Position' @input="onInput($event, 'experience')" />
+              <input :id="'position-' + exp.id" 
+                     :data-id="exp.id" 
+                     data-input="position" 
+                     :value='exp.position' 
+                     type='text' 
+                     placeholder='Position' 
+                     @input="onInput($event, 'experience')" 
+                />
             </div>
 
             <div className="form-control">
               <label htmlFor='company'>Description</label>
-              <textarea :id="'description-' + exp.id" :data-id="exp.id" data-input="description" :value='exp.description' placeholder='A description of your job here' @input="onInput($event, 'experience')" />
+              <textarea :id="'description-' + exp.id"
+                        :data-id="exp.id" 
+                        data-input="description" 
+                        :value='exp.description' 
+                        placeholder='A description of your job here' 
+                        @input="onInput($event, 'experience')" 
+                  />
             </div>
 
             <div className="form-control">
               <label htmlFor='from_comp'>From</label>
-              <input :id="'from-comp-' + exp.id" :data-id="exp.id" data-input="from_comp" :value='exp.from_comp' type='date' @input="onInput($event, 'experience')" />
+              <input :id="'from-comp-' + exp.id"
+                     :data-id="exp.id" 
+                     data-input="from_comp" 
+                     :value='exp.from_comp' 
+                     type='date' 
+                     @input="onInput($event, 'experience')" 
+                />
             </div>
 
             <div className="form-control">
               <label htmlFor='to_comp'>To</label>
-              <input :id="'to-comp-' + exp.id" :data-id="exp.id" data-input="to_comp" :value='exp.to_comp'  type='date' @input="onInput($event, 'experience')" />
+              <input :id="'to-comp-' + exp.id"
+                     :data-id="exp.id"
+                     data-input="to_comp" 
+                     :value='exp.to_comp'  
+                     type='date' 
+                     @input="onInput($event, 'experience')" 
+                />
             </div>
             
           </div>
