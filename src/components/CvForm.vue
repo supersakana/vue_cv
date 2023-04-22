@@ -116,6 +116,7 @@
           <ion-icon name="add-circle" class="text-green-600 text-xl cursor-pointer" @click="onAddForm('experience')"></ion-icon>
 
           <div :key="exp.id" v-for="exp in contents.experience">
+            <ion-icon name="remove-circle" class="text-red-600 text-xl cursor-pointer" @click="onDeleteForm('experience', exp.id)"></ion-icon>
             <div className="form-control">
               <label htmlFor='company'>Company</label>
               <input :id="'company-' + exp.id"
