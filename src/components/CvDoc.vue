@@ -18,7 +18,7 @@
       <div :key="exp.id" v-for="exp in contents.experience">
         <p>{{ exp.company }}</p>
         <p>{{ exp.position }}</p>
-        <p>{{ exp.description }}</p>
+        <p class="whitespace-pre">{{ exp.description }}</p>
         <p>{{ exp.from_comp }}</p>
         <p>{{ exp.to_comp }}</p>
       </div>

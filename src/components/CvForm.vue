@@ -222,13 +222,13 @@ export default {
 </script>
 
 <style>
-.form-control{
+.form-control {
   display: flex;
   gap: 5px;
   margin-top: 2px;
 }
 
-.section-title{
+.section-title {
   font-weight: bold;
   font-size: 1.5rem;
 }
