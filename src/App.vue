@@ -2,6 +2,7 @@
   <div class="flex">
     <CvForm :contents="contents" 
             @update-contents="updateContents" 
+            @add-form="addForm"
       />
     <CvDoc :contents="contents" />
   </div>
@@ -29,6 +30,17 @@ export default {
         updated[e.target.id] = e.target.value
       }
       this.contents = updated
+    },
+    addForm(form){
+      const updated = {...this.contents}
+      const id = `${parseInt(updated[form][updated[form].length - 1].id) + 1}`
+
+      const newForm = (form === 'education') ?
+        { id: id, university: 'Universtiy of Example', degree: 'Degree Title', from_uni: '2020-09-01', to_uni: '2020-09-01' } :
+        { id: id, company: 'Company', position: 'Position Title', description: 'Write a description here of what you did', from_comp: '2020-09-01', to_comp: '2020-09-01' }
+
+      updated[form] = [...updated[form], newForm]
+      this.contents = updated
     }
   },
   data(){
@@ -44,12 +56,12 @@ export default {
             degree: 'Degree Title',
             from_uni: '2020-09-01',
             to_uni: '2020-09-01',
-          },
+          }
         ],
         experience: [
           {
             id: '0',
-            company: 'Chipotle',
+            company: 'Company',
             position: 'Position Title',
             description: 'Write a simple description here of what you did',
             from_comp: '2020-09-01',

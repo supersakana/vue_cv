@@ -47,12 +47,13 @@
       <div>
         <div class="flex items-center justify-between">
           <h4 className="section-title">Education</h4>
-          <ion-icon name="caret-up" @click="onFormToggle($event, 'education')" class="cursor-pointer hover:text-gray-600 text-2xl"></ion-icon>
+          <ion-icon name="caret-up" class="cursor-pointer hover:text-gray-600 text-2xl" @click="onFormToggle($event, 'education')"></ion-icon>
         </div>
 
         <div id="education-form" v-if="toggles['education']">
-          <div :key="edu.id" v-for="edu in contents.education">
+          <ion-icon name="add-circle" class="text-green-600 text-xl cursor-pointer" @click="onAddForm('education')"></ion-icon>
 
+          <div :key="edu.id" v-for="edu in contents.education">
             <div className="form-control">
               <label htmlFor='university'>University</label>
               <input :id="'university-' + edu.id"
@@ -98,7 +99,6 @@
                      @input="onInput($event, 'education')"
                 />
             </div>
-            
           </div>
         </div>
       </div>
@@ -199,6 +199,9 @@ export default {
 
       e.target.name === 'caret-up' ? 
       e.target.name = 'caret-down' : e.target.name = 'caret-up'
+    },
+    onAddForm(form){
+      this.$emit('add-form', form)
     }
   },
   data(){
