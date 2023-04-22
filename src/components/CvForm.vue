@@ -54,6 +54,7 @@
           <ion-icon name="add-circle" class="text-green-600 text-xl cursor-pointer" @click="onAddForm('education')"></ion-icon>
 
           <div :key="edu.id" v-for="edu in contents.education">
+            <ion-icon name="remove-circle" class="text-red-600 text-xl cursor-pointer" @click="onDeleteForm('education', edu.id)"></ion-icon>
             <div className="form-control">
               <label htmlFor='university'>University</label>
               <input :id="'university-' + edu.id"
@@ -202,6 +203,9 @@ export default {
     },
     onAddForm(form){
       this.$emit('add-form', form)
+    },
+    onDeleteForm(form, id){
+      this.$emit('delete-form', form, id)
     }
   },
   data(){
