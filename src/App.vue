@@ -12,6 +12,26 @@
 <script>
 import CvForm from './components/CvForm'
 import CvDoc from './components/CvDoc.vue'
+function defaults(form, id){
+  const data = {
+    education: {
+      id: id,
+      university: 'University of Virginia',
+      degree: 'Degree Title',
+      from_uni: '2020-09-01',
+      to_uni: '2020-09-01',
+    },
+    experience: {
+      id: id,
+      company: 'Company',
+      position: 'Position Title',
+      description: 'Write a simple description here of what you did',
+      from_comp: '2020-09-01',
+      to_comp: '2020-09-01'
+    }
+  }
+  return data[form]
+}
 
 export default {
   name: 'App',
@@ -35,12 +55,9 @@ export default {
     addForm(form){
       const updated = {...this.contents}
       const id = (updated[form].length === 0) ?
-        '0' : 
-        `${parseInt(updated[form][updated[form].length - 1].id) + 1}`
+        '0' : `${parseInt(updated[form][updated[form].length - 1].id) + 1}`
 
-      const newForm = (form === 'education') ?
-        { id: id, university: 'Universtiy of Example', degree: 'Degree Title', from_uni: '2020-09-01', to_uni: '2020-09-01' } :
-        { id: id, company: 'Company', position: 'Position Title', description: 'Write a description here of what you did', from_comp: '2020-09-01', to_comp: '2020-09-01' }
+      const newForm = defaults(form, id)
 
       updated[form] = [...updated[form], newForm]
       this.contents = updated
@@ -49,7 +66,7 @@ export default {
       let updated = {...this.contents}
       updated[form] = updated[form].filter((f) => f.id !== id)
       this.contents = updated
-    }
+    },
   },
   data(){
     return {
@@ -57,25 +74,8 @@ export default {
         name: 'John Doe',
         email: 'johndoe@example.com',
         phone: '+1 (234)-567-890',
-        education: [
-          {
-            id: '0',
-            university: 'University of Example',
-            degree: 'Degree Title',
-            from_uni: '2020-09-01',
-            to_uni: '2020-09-01',
-          }
-        ],
-        experience: [
-          {
-            id: '0',
-            company: 'Company',
-            position: 'Position Title',
-            description: 'Write a simple description here of what you did',
-            from_comp: '2020-09-01',
-            to_comp: '2020-09-01'
-          },
-        ],
+        education: [defaults('education', '0')],
+        experience: [defaults('experience', '0')]
       }
     }
   }
