@@ -112,8 +112,9 @@
         </div>
 
         <div id="experience-form" v-if="toggles['experience']">
-          <div :key="exp.id" v-for="exp in contents.experience">
+          <ion-icon name="add-circle" class="text-green-600 text-xl cursor-pointer" @click="onAddForm('experience')"></ion-icon>
 
+          <div :key="exp.id" v-for="exp in contents.experience">
             <div className="form-control">
               <label htmlFor='company'>Company</label>
               <input :id="'company-' + exp.id"
@@ -170,7 +171,6 @@
                      @input="onInput($event, 'experience')" 
                 />
             </div>
-            
           </div>
         </div>
       </div>
