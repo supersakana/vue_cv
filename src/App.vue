@@ -12,6 +12,7 @@
 <script>
 import CvForm from './components/CvForm'
 import CvDoc from './components/CvDoc.vue'
+
 function defaults(form, id){
   const data = {
     education: {

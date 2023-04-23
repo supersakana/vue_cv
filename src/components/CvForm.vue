@@ -2,45 +2,13 @@
   <form @submit.prevent="onSubmit">
 
       <!-- General -->
-
-      <div>
-        <div class="flex items-center justify-between">
-          <h4 className="section-title">General</h4>
-          <ion-icon name="caret-up" @click="onFormToggle($event, 'general')" class="cursor-pointer hover:text-gray-600 text-2xl"></ion-icon>
-        </div>
-
-        <div id="general-form" v-if="toggles['general']">
-          <div className="form-control">
-            <label htmlFor='name'>Name</label>
-            <input id='name' 
-                   type='text' 
-                   placeholder="John Doe" 
-                   :value='contents.name' 
-                   @input="onInput($event, 'general')" 
-              />
-          </div>
-
-          <div className="form-control">
-            <label htmlFor='email'>Email</label>
-            <input id='email'
-                   type='email' 
-                   placeholder='example@this.com' 
-                   :value='contents.email' 
-                   @input="onInput($event, 'general')" 
-              />
-          </div>
-
-          <div className="form-control">
-            <label htmlFor='phone'>Phone</label>
-            <input id='phone'  
-                   type='phone' 
-                   placeholder='+1 (123)-456-789'
-                   :value='contents.phone'
-                   @input="onInput($event, 'general')" 
-              />
-          </div>
-        </div>
+    <div>
+      <div class="flex items-center justify-between">
+        <h4 className="section-title">General</h4>
+        <ion-icon name="caret-up" @click="onFormToggle($event, 'general')" class="cursor-pointer hover:text-gray-600 text-2xl"></ion-icon>
       </div>
+      <GeneralForm :contents="contents" :toggles="toggles" @update-contents="updateContents" />
+    </div>
 
       <!-- Education -->
 
@@ -182,8 +150,13 @@
 </template>
 
 <script>
+import GeneralForm from './GeneralForm.vue'
+
 export default {
   name: 'CvForm',
+  components: {
+    GeneralForm,
+  },
   props: {
     contents: Object
     },
@@ -192,6 +165,9 @@ export default {
       e.preventDefault
     },
     onInput(e, form){
+      this.$emit('update-contents', e, form)
+    },
+    updateContents(e, form){
       this.$emit('update-contents', e, form)
     },
     onFormToggle(e, form){
