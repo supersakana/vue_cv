@@ -17,59 +17,11 @@
           <h4 className="section-title">Education</h4>
           <ion-icon name="caret-up" class="cursor-pointer hover:text-gray-600 text-2xl" @click="onFormToggle($event, 'education')"></ion-icon>
         </div>
-
-        <div id="education-form" v-if="toggles['education']">
-          <ion-icon name="add-circle" class="text-green-600 text-xl cursor-pointer" @click="onAddForm('education')"></ion-icon>
-
-          <div :key="edu.id" v-for="edu in contents.education">
-            <ion-icon name="remove-circle" class="text-red-600 text-xl cursor-pointer" @click="onDeleteForm('education', edu.id)"></ion-icon>
-            <div className="form-control">
-              <label htmlFor='university'>University</label>
-              <input :id="'university-' + edu.id"
-                     :data-id="edu.id" 
-                     data-input="university" 
-                     :value='edu.university' 
-                     type='text'
-                     placeholder='University of Example'
-                     @input="onInput($event, 'education')" 
-                />
-            </div>
-
-            <div className="form-control">
-              <label htmlFor='degree'>Degree</label>
-              <input :id="'degree-' + edu.id" 
-                     :data-id="edu.id" 
-                     data-input="degree" 
-                     :value='edu.degree' 
-                     type='text' 
-                     placeholder='BS in Example Science' 
-                     @input="onInput($event, 'education')" 
-                />
-            </div>
-
-            <div className="form-control">
-              <label htmlFor='from_uni'>From</label>
-              <input :id="'from-uni-' + edu.id"
-                     :data-id="edu.id"
-                     data-input="from_uni"
-                     :value='edu.from_uni' 
-                     type='date' 
-                     @input="onInput($event, 'education')" 
-                />
-            </div>
-
-            <div className="form-control">
-              <label htmlFor='to_uni'>To</label>
-              <input :id="'to-uni-' + edu.id"
-                     :data-id="edu.id" 
-                     data-input="to_uni" 
-                     :value='edu.to_uni' 
-                     type='date' 
-                     @input="onInput($event, 'education')"
-                />
-            </div>
-          </div>
-        </div>
+        <EducationForm :contents="contents" 
+                       :toggles="toggles" 
+                       @update-contents="updateContents"  
+                       @delete-form="deleteForm" 
+                       @add-form="addForm" />
       </div>
 
       <!-- Experience -->
@@ -150,12 +102,14 @@
 </template>
 
 <script>
-import GeneralForm from './GeneralForm.vue'
+import GeneralForm from './forms/GeneralForm.vue'
+import EducationForm from './forms/EducationForm.vue'
 
 export default {
   name: 'CvForm',
   components: {
     GeneralForm,
+    EducationForm,
   },
   props: {
     contents: Object
@@ -181,7 +135,13 @@ export default {
     onAddForm(form){
       this.$emit('add-form', form)
     },
+    addForm(form){
+      this.$emit('add-form', form)
+    },
     onDeleteForm(form, id){
+      this.$emit('delete-form', form, id)
+    },
+    deleteForm(form, id){
       this.$emit('delete-form', form, id)
     }
   },
