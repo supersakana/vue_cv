@@ -3,6 +3,8 @@
       <p>{{ contents.name }}</p>
       <p>{{ contents.email }}</p>
       <p>{{ contents.phone }}</p>
+      <p>{{ contents.location }}</p>
+      <p class="whitespace-pre">{{ contents.bio }}</p>
 
       <br>
 

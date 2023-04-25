@@ -75,6 +75,8 @@ export default {
         name: 'John Doe',
         email: 'johndoe@example.com',
         phone: '+1 (234)-567-890',
+        location: '1800 Example St',
+        bio: 'Tell us about yourself...',
         education: [defaults('education', '0')],
         experience: [defaults('experience', '0')]
       }

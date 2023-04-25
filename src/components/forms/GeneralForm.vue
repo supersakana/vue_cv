@@ -29,6 +29,26 @@
              @input="onInput($event, 'general')" 
         />
     </div>
+
+    <div className="form-control">
+      <label htmlFor='location'>Location</label>
+      <input id='location'
+             type='text' 
+             placeholder='1800 Example St' 
+             :value='contents.location' 
+             @input="onInput($event, 'general')" 
+        />
+    </div>
+
+    <div className="form-control">
+      <label htmlFor='bio'>Bio</label>
+      <textarea id='bio'
+                type='text' 
+                placeholder='Tell us about yourself...' 
+                :value='contents.bio' 
+                @input="onInput($event, 'general')" 
+        />
+    </div>
   </div>
 </template>
 
