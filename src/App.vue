@@ -45,10 +45,11 @@ export default {
   methods: {
     updateContents(e, form){
       const updated = {...this.contents}
-      const id = e.target.getAttribute('data-id')
-      const input = e.target.getAttribute('data-input')
       
       if(form !== 'general'){
+        const id = e.target.getAttribute('data-id')
+        const input = e.target.getAttribute('data-input')
+        
         updated[form].find((section) => section.id === id)[input] = e.target.value
       } else {
         updated[e.target.id] = e.target.value

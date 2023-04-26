@@ -14,7 +14,6 @@
             <ion-icon name="remove-circle" class="text-red-600 text-xl cursor-pointer" @click="onDeleteSkill(index)"></ion-icon>
         </div>
       </div>
-
     </div>
   </template>
   
