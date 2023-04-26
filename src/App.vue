@@ -4,6 +4,7 @@
             @update-contents="updateContents" 
             @add-form="addForm"
             @delete-form="deleteForm"
+            @add-skill="addSkill"
       />
     <CvDoc :contents="contents" />
   </div>
@@ -68,6 +69,11 @@ export default {
       updated[form] = updated[form].filter((f) => f.id !== id)
       this.contents = updated
     },
+    addSkill(skill){
+      let updated = {...this.contents}
+      updated['skills'] = [...updated['skills'], skill]
+      this.contents = updated
+    }
   },
   data(){
     return {
@@ -77,6 +83,7 @@ export default {
         phone: '+1 (234)-567-890',
         location: '1800 Example St',
         bio: 'Tell us about yourself...',
+        skills: ['HTML', 'CSS', 'JavaScript'],
         education: [defaults('education', '0')],
         experience: [defaults('experience', '0')]
       }

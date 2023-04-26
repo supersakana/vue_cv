@@ -8,6 +8,10 @@
 
       <br>
 
+      <p>{{ contents.skills.join(', ') }}</p>
+
+      <br>
+
       <div :key="edu.id" v-for="edu in contents.education">
         <p>{{ edu.university }}</p>
         <p>{{ edu.degree }}</p>

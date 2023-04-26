@@ -3,19 +3,28 @@
 
       <!-- General -->
     <div>
-      <div class="flex items-center justify-between">
+      <div class="flex items-center">
+        <ion-icon name="caret-down" @click="onFormToggle($event, 'general')" class="cursor-pointer hover:text-gray-600 text-2xl"></ion-icon>
         <h4 className="section-title">General</h4>
-        <ion-icon name="caret-up" @click="onFormToggle($event, 'general')" class="cursor-pointer hover:text-gray-600 text-2xl"></ion-icon>
       </div>
       <GeneralForm :contents="contents" :toggles="toggles" @update-contents="updateContents" />
+    </div>
+
+    <!-- Skills -->
+    <div>
+      <div class="flex items-center">
+        <ion-icon name="caret-down" @click="onFormToggle($event, 'skills')" class="cursor-pointer hover:text-gray-600 text-2xl"></ion-icon>
+        <h4 className="section-title">Skills</h4>
+      </div>
+      <SkillsForm :contents="contents" :toggles="toggles"  @add-skill="addSkill" />
     </div>
 
       <!-- Education -->
 
     <div>
-      <div class="flex items-center justify-between">
+      <div class="flex items-center">
+        <ion-icon name="caret-down" class="cursor-pointer hover:text-gray-600 text-2xl" @click="onFormToggle($event, 'education')"></ion-icon>
         <h4 className="section-title">Education</h4>
-        <ion-icon name="caret-up" class="cursor-pointer hover:text-gray-600 text-2xl" @click="onFormToggle($event, 'education')"></ion-icon>
       </div>
       <EducationForm :contents="contents" 
                       :toggles="toggles" 
@@ -27,9 +36,9 @@
       <!-- Experience -->
 
     <div>
-      <div class="flex items-center justify-between">
+      <div class="flex items-center">
+        <ion-icon name="caret-down" @click="onFormToggle($event, 'experience')" class="cursor-pointer hover:text-gray-600 text-2xl"></ion-icon>
         <h4 className="section-title">Experience</h4>
-        <ion-icon name="caret-up" @click="onFormToggle($event, 'experience')" class="cursor-pointer hover:text-gray-600 text-2xl"></ion-icon>
       </div>
       <ExperienceForm :contents="contents" 
                       :toggles="toggles" 
@@ -46,11 +55,13 @@
 import GeneralForm from './forms/GeneralForm.vue'
 import EducationForm from './forms/EducationForm.vue'
 import ExperienceForm from './forms/ExperienceForm.vue'
+import SkillsForm from './forms/SkillsForm.vue'
 
 export default {
   name: 'CvForm',
   components: {
     GeneralForm,
+    SkillsForm,
     EducationForm,
     ExperienceForm,
   },
@@ -77,12 +88,16 @@ export default {
     },
     deleteForm(form, id){
       this.$emit('delete-form', form, id)
+    },
+    addSkill(skill){
+      this.$emit('add-skill', skill)
     }
   },
   data(){
     return {
       toggles: {
         general: true,
+        skills: true,
         education: true,
         experience: true,
       }
