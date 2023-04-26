@@ -16,7 +16,7 @@
         <ion-icon name="caret-down" @click="onFormToggle($event, 'skills')" class="cursor-pointer hover:text-gray-600 text-2xl"></ion-icon>
         <h4 className="section-title">Skills</h4>
       </div>
-      <SkillsForm :contents="contents" :toggles="toggles"  @add-skill="addSkill" />
+      <SkillsForm :contents="contents" :toggles="toggles"  @add-skill="addSkill"  @delete-skill="deleteSkill" />
     </div>
 
       <!-- Education -->
@@ -91,6 +91,9 @@ export default {
     },
     addSkill(skill){
       this.$emit('add-skill', skill)
+    },
+    deleteSkill(index){
+      this.$emit('delete-skill', index)
     }
   },
   data(){

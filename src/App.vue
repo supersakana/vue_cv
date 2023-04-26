@@ -5,6 +5,7 @@
             @add-form="addForm"
             @delete-form="deleteForm"
             @add-skill="addSkill"
+            @delete-skill="deleteSkill"
       />
     <CvDoc :contents="contents" />
   </div>
@@ -72,6 +73,11 @@ export default {
     addSkill(skill){
       let updated = {...this.contents}
       updated['skills'] = [...updated['skills'], skill]
+      this.contents = updated
+    },
+    deleteSkill(index){
+      let updated = {...this.contents}
+      updated['skills'] = updated['skills'].filter((_skill, i) => i !== index)
       this.contents = updated
     }
   },
