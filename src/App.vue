@@ -1,6 +1,6 @@
 <template>
   <div class="flex">
-    <div class="w-full md:w-[400px]">
+    <div class="w-full md:w-[550px]">
       <CvForm :contents="contents" 
             @update-contents="updateContents" 
             @add-form="addForm"

@@ -1,10 +1,10 @@
 <template>
-  <form @submit.prevent="onSubmit">
+  <form @submit.prevent="onSubmit" class="h-screen overflow-y-scroll shadow-md py-1 px-3">
 
       <!-- General -->
     <div>
       <div class="flex items-center">
-        <ion-icon name="caret-down" @click="onFormToggle($event, 'general')" class="cursor-pointer hover:text-gray-600 text-2xl"></ion-icon>
+        <ion-icon name="chevron-down-outline" @click="onFormToggle($event, 'general')" class="cursor-pointer hover:text-gray-600 text-2xl"></ion-icon>
         <h4 className="section-title">General</h4>
       </div>
       <GeneralForm :contents="contents" :toggles="toggles" @update-contents="updateContents" />
@@ -13,7 +13,7 @@
     <!-- Skills -->
     <div>
       <div class="flex items-center">
-        <ion-icon name="caret-down" @click="onFormToggle($event, 'skills')" class="cursor-pointer hover:text-gray-600 text-2xl"></ion-icon>
+        <ion-icon name="chevron-down-outline" @click="onFormToggle($event, 'skills')" class="cursor-pointer hover:text-gray-600 text-2xl"></ion-icon>
         <h4 className="section-title">Skills</h4>
       </div>
       <SkillsForm :contents="contents" :toggles="toggles"  @add-skill="addSkill"  @delete-skill="deleteSkill" />
@@ -23,7 +23,7 @@
 
     <div>
       <div class="flex items-center">
-        <ion-icon name="caret-down" class="cursor-pointer hover:text-gray-600 text-2xl" @click="onFormToggle($event, 'education')"></ion-icon>
+        <ion-icon name="chevron-down-outline" class="cursor-pointer hover:text-gray-600 text-2xl" @click="onFormToggle($event, 'education')"></ion-icon>
         <h4 className="section-title">Education</h4>
       </div>
       <EducationForm :contents="contents" 
@@ -37,7 +37,7 @@
 
     <div>
       <div class="flex items-center">
-        <ion-icon name="caret-down" @click="onFormToggle($event, 'experience')" class="cursor-pointer hover:text-gray-600 text-2xl"></ion-icon>
+        <ion-icon name="chevron-down-outline" @click="onFormToggle($event, 'experience')" class="cursor-pointer hover:text-gray-600 text-2xl"></ion-icon>
         <h4 className="section-title">Experience</h4>
       </div>
       <ExperienceForm :contents="contents" 
@@ -81,8 +81,8 @@ export default {
       updated[form] = !updated[form]
       this.toggles = updated
 
-      e.target.name === 'caret-up' ? 
-      e.target.name = 'caret-down' : e.target.name = 'caret-up'
+      e.target.name === 'chevron-up-outline' ? 
+      e.target.name = 'chevron-down-outline' : e.target.name = 'chevron-up-outline'
     },
     addForm(form){
       this.$emit('add-form', form)
