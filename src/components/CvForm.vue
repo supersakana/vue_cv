@@ -2,7 +2,7 @@
   <form @submit.prevent="onSubmit" class="h-screen overflow-y-scroll shadow-md py-1 px-3">
 
       <!-- General -->
-    <div>
+    <div class="mx-4 my-2">
       <div class="flex items-center">
         <ion-icon name="chevron-down-outline" @click="onFormToggle($event, 'general')" class="cursor-pointer hover:text-gray-600 text-2xl"></ion-icon>
         <h4 className="section-title">General</h4>
@@ -11,7 +11,7 @@
     </div>
 
     <!-- Skills -->
-    <div>
+    <div class="mx-4 my-2">
       <div class="flex items-center">
         <ion-icon name="chevron-down-outline" @click="onFormToggle($event, 'skills')" class="cursor-pointer hover:text-gray-600 text-2xl"></ion-icon>
         <h4 className="section-title">Skills</h4>
@@ -21,30 +21,30 @@
 
       <!-- Education -->
 
-    <div>
+    <div class="mx-4 my-2">
       <div class="flex items-center">
         <ion-icon name="chevron-down-outline" class="cursor-pointer hover:text-gray-600 text-2xl" @click="onFormToggle($event, 'education')"></ion-icon>
         <h4 className="section-title">Education</h4>
       </div>
       <EducationForm :contents="contents" 
-                      :toggles="toggles" 
-                      @update-contents="updateContents"  
-                      @delete-form="deleteForm" 
-                      @add-form="addForm" />
+                    :toggles="toggles" 
+                    @update-contents="updateContents"  
+                    @delete-form="deleteForm" 
+                    @add-form="addForm" />
     </div>
 
       <!-- Experience -->
 
-    <div>
+    <div class="mx-4 my-2">
       <div class="flex items-center">
         <ion-icon name="chevron-down-outline" @click="onFormToggle($event, 'experience')" class="cursor-pointer hover:text-gray-600 text-2xl"></ion-icon>
         <h4 className="section-title">Experience</h4>
       </div>
       <ExperienceForm :contents="contents" 
-                      :toggles="toggles" 
-                      @update-contents="updateContents"  
-                      @delete-form="deleteForm" 
-                      @add-form="addForm" />
+                    :toggles="toggles" 
+                    @update-contents="updateContents"  
+                    @delete-form="deleteForm" 
+                    @add-form="addForm" />
     </div>
 
     <input type='submit' value='Submit' className="bg-blue-500 text-white rounded-md py-1 px-2 hover:bg-blue-400 duration-500" />
@@ -111,14 +111,24 @@ export default {
 </script>
 
 <style>
+
 .form-control {
   display: flex;
+  flex-direction: column;
   gap: 5px;
-  margin-top: 2px;
+  margin: 15px 0;
+}
+
+.sub-form {
+  border: solid #d1d9e4 1px;
+  box-shadow: #cccccc1a 0px 1px 3px 0px, rgba(219, 219, 219, 0.06) 0px 1px 2px 0px;
+  border-radius: 8px;
+  padding: 4px 20px;
 }
 
 .section-title {
   font-weight: bold;
   font-size: 1.5rem;
+  margin: 15px 0;
 }
 </style>

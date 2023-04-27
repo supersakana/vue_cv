@@ -2,3 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap');
+
+
+h4 {
+  color: #404040;
+}
+
+label{
+  color: #566f91;
+}
+  
+input, textarea {
+  background-color: #f1f4f6;
+  border-radius: 4px;
+  padding: 8px;
+  color: #404040;
+}
+
+textarea {
+  resize: none;
+  height: 100px;
+}
+
+/* form {
+} */
