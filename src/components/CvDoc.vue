@@ -1,5 +1,5 @@
 <template>
-  <div class="font-bold">
+  <div class="font-bold bg-gray-100">
       <p>{{ contents.name }}</p>
       <p>{{ contents.email }}</p>
       <p>{{ contents.phone }}</p>

@@ -1,14 +1,16 @@
 <template>
   <div class="flex">
-    <CvForm :contents="contents" 
+    <div class="w-full md:w-[400px]">
+      <CvForm :contents="contents" 
             @update-contents="updateContents" 
             @add-form="addForm"
             @delete-form="deleteForm"
             @add-skill="addSkill"
             @delete-skill="deleteSkill"
-            @export-pdf="exportPDF"
-      />
-    <div id="cv-doc" ref="document">
+            @export-pdf="exportPDF" />
+    </div>
+    
+    <div id="cv-doc" ref="document" class="w-full hidden md:block">
       <CvDoc :contents="contents" />
     </div>
   </div>
@@ -86,6 +88,8 @@ export default {
       this.contents = updated
     },
     exportPDF(){
+      // https://stackoverflow.com/questions/60204249/cannnot-convert-html-code-to-pdf-with-vue-html2pdf
+      // https://stackoverflow.com/questions/69705309/jspdf-html2canvas-losing-spaces-and-misaligning-text-generally
       html2pdf(this.$refs.document, {
 					margin: 1,
 					filename: 'document.pdf',
@@ -113,7 +117,15 @@ export default {
 </script>
 
 <style>
-  * {
+  *,
+  *::before,
+  *::after {
     letter-spacing: 0.01px;
   }
+
+  body,
+  html {
+    width: 100%;
+  }
+
 </style>
