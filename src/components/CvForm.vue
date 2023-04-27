@@ -71,6 +71,7 @@ export default {
   methods: {
     onSubmit(e) {
       e.preventDefault
+      this.$emit('export-pdf')
     },
     updateContents(e, form){
       this.$emit('update-contents', e, form)

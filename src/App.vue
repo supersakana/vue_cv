@@ -6,14 +6,18 @@
             @delete-form="deleteForm"
             @add-skill="addSkill"
             @delete-skill="deleteSkill"
+            @export-pdf="exportPDF"
       />
-    <CvDoc :contents="contents" />
+    <div id="cv-doc" ref="document">
+      <CvDoc :contents="contents" />
+    </div>
   </div>
 </template>
 
 <script>
 import CvForm from './components/CvForm'
 import CvDoc from './components/CvDoc.vue'
+import html2pdf from 'html2pdf.js'
 
 function defaults(form, id){
   const data = {
@@ -40,7 +44,7 @@ export default {
   name: 'App',
   components: {
     CvForm,
-    CvDoc
+    CvDoc,
   },
   methods: {
     updateContents(e, form){
@@ -80,6 +84,15 @@ export default {
       let updated = {...this.contents}
       updated['skills'] = updated['skills'].filter((_skill, i) => i !== index)
       this.contents = updated
+    },
+    exportPDF(){
+      html2pdf(this.$refs.document, {
+					margin: 1,
+					filename: 'document.pdf',
+					image: { type: 'jpeg', quality: 0.98 },
+					html2canvas: { dpi: 192, letterRendering: true },
+					jsPDF: { unit: 'in', format: 'letter', orientation: 'landscape' }
+				})
     }
   },
   data(){
@@ -98,3 +111,9 @@ export default {
   }
 }
 </script>
+
+<style>
+  * {
+    letter-spacing: 0.01px;
+  }
+</style>
