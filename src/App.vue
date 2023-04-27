@@ -1,6 +1,6 @@
 <template>
   <div class="flex">
-    <div class="w-full md:w-[550px]">
+    <div class="w-full md:w-[550px] font-poppins">
       <CvForm :contents="contents" 
             @update-contents="updateContents" 
             @add-form="addForm"
