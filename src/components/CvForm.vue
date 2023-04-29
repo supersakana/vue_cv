@@ -16,7 +16,12 @@
         <ion-icon name="chevron-down-outline" @click="onFormToggle($event, 'skills')" class="cursor-pointer hover:text-gray-600 text-2xl"></ion-icon>
         <h4 className="section-title">Skills</h4>
       </div>
-      <SkillsForm :contents="contents" :toggles="toggles"  @add-skill="addSkill"  @delete-skill="deleteSkill" />
+      <SkillsForm :contents="contents"
+                  :toggles="toggles"  
+                  @add-skill="addSkill"  
+                  @delete-skill="deleteSkill"
+                  @update-contents="updateContents" />
+                  
     </div>
 
       <!-- Education -->

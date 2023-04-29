@@ -14,7 +14,14 @@
         <div class="form-control">
           <div :key="index" v-for="(skill, index) in contents.skills">
             <div :id="`skill-${index}`" class="flex items-center justify-between">
-                <span>{{ skill }}</span>
+                <!-- <span>{{ skill }}</span> -->
+                <input id='skills' 
+                  type='text' 
+                  :value="skill"
+                  :data-id="index" 
+                  placeholder="Enter a skill here..." 
+                  @input="onInput($event, 'skills')"
+            />
                 <ion-icon name="remove-circle" class="text-red-600 text-xl cursor-pointer" @click="onDeleteSkill(index)"></ion-icon>
             </div>
           </div>
@@ -40,7 +47,10 @@
         },
         onDeleteSkill(index){
           this.$emit('delete-skill', index)
-        }
+        },
+        onInput(e, form){
+          this.$emit('update-contents', e, form)
+        },
     },
   }
   </script>
