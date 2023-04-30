@@ -1,5 +1,6 @@
 <template>
   <div class="flex">
+    <!--  md:min-w-[445px] -->
     <div class="w-full md:w-[600px] font-poppins border-r">
       <CvForm :contents="contents" 
             @update-contents="updateContents" 

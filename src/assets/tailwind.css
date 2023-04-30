@@ -24,5 +24,17 @@ textarea {
   height: 100px;
 }
 
+.button-bg{
+  background: rgb(61,183,132);
+  background: linear-gradient(45deg, rgba(61,183,132,1) 10%, rgb(30, 199, 129) 90%);
+  transition: transform 0.15s ease-in;
+}
+
+.button-bg:hover{
+  background: rgb(67, 218, 155);
+  background: linear-gradient(45deg, rgb(64, 203, 145) 10%, rgb(31, 209, 135) 90%);
+  transform: scale(1.05);
+}
+
 /* form {
 } */

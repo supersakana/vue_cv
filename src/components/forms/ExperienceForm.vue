@@ -1,7 +1,6 @@
 <template>
   <div id="experience-form" v-if="toggles['experience']">
     <div class="sub-form">
-      <ion-icon name="add-circle" class="text-green-600 text-xl cursor-pointer" @click="onAddForm('experience')"></ion-icon>
       <div :key="exp.id" v-for="exp in contents.experience">
         <ion-icon name="remove-circle" class="text-red-600 text-xl cursor-pointer" @click="onDeleteForm('experience', exp.id)"></ion-icon>
         <div className="form-control">
@@ -61,6 +60,7 @@
               />
           </div>
       </div>
+      <button class="button-bg mb-3 mt-1 px-4 py-2 font-bold text-white rounded-lg duration-500"  @click="onAddForm('experience')">Add Experience</button>
     </div>
   </div>
 </template>

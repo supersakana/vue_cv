@@ -1,7 +1,6 @@
 <template>
   <div id="education-form" v-if="toggles['education']">
     <div class="sub-form">
-      <ion-icon name="add-circle" class="text-green-600 text-xl cursor-pointer" @click="onAddForm('education')"></ion-icon>
       <div :key="edu.id" v-for="edu in contents.education">
         <ion-icon name="remove-circle" class="text-red-600 text-xl cursor-pointer" @click="onDeleteForm('education', edu.id)"></ion-icon>
         <div className="form-control">
@@ -50,6 +49,7 @@
               />
         </div>
       </div>
+      <button class="button-bg mb-3 mt-1 px-4 py-2 font-bold text-white rounded-lg duration-500"  @click="onAddForm('education')">Add School</button>
     </div>
   </div>
 </template>

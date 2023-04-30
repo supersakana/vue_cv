@@ -52,7 +52,7 @@
                     @add-form="addForm" />
     </div>
 
-    <input type='submit' value='Submit' className="bg-blue-500 text-white rounded-md py-1 px-2 hover:bg-blue-400 duration-500" />
+    <!-- <input type='submit' value='Submit' className="bg-blue-500 text-white rounded-md py-1 px-2 hover:bg-blue-400 duration-500" /> -->
   </form>
 </template>
 
@@ -76,7 +76,7 @@ export default {
   methods: {
     onSubmit(e) {
       e.preventDefault
-      this.$emit('export-pdf')
+      // this.$emit('export-pdf')
     },
     updateContents(e, form){
       this.$emit('update-contents', e, form)
