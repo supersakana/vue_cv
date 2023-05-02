@@ -2,9 +2,11 @@
   <div id="experience-form" v-if="toggles['experience']">
     <div class="sub-form">
       <div :key="exp.id" v-for="exp in contents.experience">
-        <ion-icon name="remove-circle" class="text-red-600 text-xl cursor-pointer" @click="onDeleteForm('experience', exp.id)"></ion-icon>
         <div className="form-control">
-          <label htmlFor='company'>Company</label>
+          <div class="flex items-center justify-between">
+            <label htmlFor='company'>Company</label>
+            <ion-icon name="close-circle" class="text-gray-300 hover:text-red-500 text-xl cursor-pointer ml-[14px] min-w-[16px] min-h-[16px]" @click="onDeleteForm('experience', exp.id)"></ion-icon>
+          </div>
           <input :id="'company-' + exp.id"
                   :data-id="exp.id" 
                   data-input="company" 

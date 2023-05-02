@@ -1,5 +1,5 @@
 <template>
-  <div class="border p-3 m-3 rounded-lg shadow-md">
+  <div class="border p-3 m-3 w-[8in] h-[11in] bg-white">
       <p>{{ contents.name }}</p>
       <p>{{ contents.email }}</p>
       <p>{{ contents.phone }}</p>

@@ -1,7 +1,7 @@
 <template>
   <div class="flex">
     <!--  md:min-w-[445px] -->
-    <div class="w-full md:w-[600px] font-poppins border-r">
+    <div class="w-full md:max-w-[425px] font-poppins border-r">
       <CvForm :contents="contents" 
             @update-contents="updateContents" 
             @add-form="addForm"
@@ -11,7 +11,7 @@
             @export-pdf="exportPDF" />
     </div>
     
-    <div id="cv-doc" ref="document" class="w-full hidden md:block">
+    <div id="cv-doc" ref="document" class="w-full hidden md:flex justify-center bg-[#f1f4f6] h-screen overflow-y-scroll py-20">
       <CvDoc :contents="contents" />
     </div>
   </div>
