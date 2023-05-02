@@ -3,15 +3,16 @@
       <div class="sub-form">
         <div class="form-control">
           <div :key="index" v-for="(skill, index) in contents.skills">
-            <div :id="`skill-${index}`" class="flex items-center my-2">
+            <div :id="`skill-${index}`" class="flex items-center justify-center my-2">
                 <input id='skills' 
                   type='text' 
                   :value="skill"
                   :data-id="index" 
                   placeholder="Enter a skill here..." 
                   @input="onInput($event, 'skills')"
+                  class="w-full"
                   />
-                <ion-icon name="remove-circle" class="text-red-600 text-xl cursor-pointer" @click="onDeleteSkill(index)"></ion-icon>
+                <ion-icon class="text-gray-300 hover:text-red-500 text-xl cursor-pointer ml-[14px] min-w-[16px] min-h-[16px]" @click="onDeleteSkill(index)" name="close-circle"></ion-icon>
             </div>
           </div>
         </div>
