@@ -1,10 +1,15 @@
 <template>
-  <div class="border p-3 m-3 w-[8in] h-[11in] bg-white">
-      <p>{{ contents.name }}</p>
-      <p>{{ contents.email }}</p>
-      <p>{{ contents.phone }}</p>
-      <p>{{ contents.location }}</p>
-      <p class="whitespace-pre">{{ contents.bio }}</p>
+  <div class="border p-3 m-3 w-[8in] h-[11in] bg-white p-[24px] font-roboto">
+      <div class="text-center break-words flex flex-col gap-y-2">
+        <p class="text-[30px]">{{ contents.name }}</p>
+        <p class="px-[54px]">{{ contents.bio }}</p>
+        <div class="flex justify-center gap-x-4">
+          <p>{{ contents.location }}</p>
+          <p>{{ contents.email }}</p>
+          <p>{{ contents.phone }}</p>
+        </div>
+        <hr class="my-1 border-[#202020]">
+      </div>
 
       <br>
 
