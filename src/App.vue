@@ -54,7 +54,7 @@ export default {
       const id = e.target.getAttribute('data-id')
       const input = e.target.getAttribute('data-input')
       
-      if(form === 'general'){     
+      if(form === 'general' || form === 'social'){     
         updated[e.target.id] = e.target.value 
       } else if (form === 'skills'){
         updated['skills'][id] = e.target.value
@@ -109,6 +109,7 @@ export default {
         location: 'Virginia Beach, VA',
         bio: 'Self-motivated and innovative software developer with excellent communication and problem-solving skills. Confident in collaborative environments.',
         skills: ['HTML', 'CSS', 'JavaScript', 'Ruby', 'Ruby on Rails', 'RSpec', 'WordPress', 'Divi', 'Elementor', 'Vue', 'Tailwind', 'Git', 'GitHub'],
+        linkedin: '',
         education: [defaults('education', '0')],
         experience: [defaults('experience', '0')]
       }

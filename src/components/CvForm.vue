@@ -1,13 +1,22 @@
 <template>
   <form @submit.prevent="onSubmit" class="h-screen overflow-y-scroll shadow-md py-1 px-3">
 
-      <!-- General -->
+    <!-- General -->
     <div class="mx-4 my-2">
       <div class="flex items-center">
         <ion-icon name="chevron-down-outline" @click="onFormToggle($event, 'general')" class="cursor-pointer hover:text-gray-600 text-2xl"></ion-icon>
         <h4 className="section-title">General</h4>
       </div>
       <GeneralForm :contents="contents" :toggles="toggles" @update-contents="updateContents" />
+    </div>
+
+    <!-- Social -->
+    <div class="mx-4 my-2">
+      <div class="flex items-center">
+        <ion-icon name="chevron-down-outline" @click="onFormToggle($event, 'social')" class="cursor-pointer hover:text-gray-600 text-2xl"></ion-icon>
+        <h4 className="section-title">Social</h4>
+      </div>
+      <SocialForm :contents="contents" :toggles="toggles" @update-contents="updateContents" />
     </div>
 
     <!-- Skills -->
@@ -58,6 +67,7 @@
 
 <script>
 import GeneralForm from './forms/GeneralForm.vue'
+import SocialForm from './forms/SocialForm.vue'
 import EducationForm from './forms/EducationForm.vue'
 import ExperienceForm from './forms/ExperienceForm.vue'
 import SkillsForm from './forms/SkillsForm.vue'
@@ -69,6 +79,7 @@ export default {
     SkillsForm,
     EducationForm,
     ExperienceForm,
+    SocialForm
   },
   props: {
     contents: Object
@@ -106,6 +117,7 @@ export default {
     return {
       toggles: {
         general: true,
+        social: true,
         skills: true,
         education: true,
         experience: true,
