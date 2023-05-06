@@ -46,7 +46,7 @@
                   :data-id="exp.id" 
                   data-input="from_comp" 
                   :value='exp.from_comp' 
-                  type='date' 
+                  type='text' 
                   @input="onInput($event, 'experience')" 
               />
           </div>
@@ -57,7 +57,7 @@
                   :data-id="exp.id"
                   data-input="to_comp" 
                   :value='exp.to_comp'  
-                  type='date' 
+                  type='text' 
                   @input="onInput($event, 'experience')" 
               />
           </div>

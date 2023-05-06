@@ -36,7 +36,7 @@
                 :data-id="edu.id"
                 data-input="from_uni"
                 :value='edu.from_uni' 
-                type='date' 
+                type='text' 
                 @input="onInput($event, 'education')" 
               />
         </div>
@@ -47,7 +47,7 @@
                   :data-id="edu.id" 
                   data-input="to_uni" 
                   :value='edu.to_uni' 
-                  type='date' 
+                  type='text' 
                   @input="onInput($event, 'education')"
               />
         </div>

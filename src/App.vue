@@ -27,16 +27,16 @@ function defaults(form, id){
       id: id,
       university: 'University of Virginia',
       degree: 'Degree Title',
-      from_uni: '2020-09-01',
-      to_uni: '2020-09-01',
+      from_uni: 'September 2018',
+      to_uni: 'May 2022',
     },
     experience: {
       id: id,
       company: 'Company',
       position: 'Position Title',
       description: 'Write a simple description here of what you did',
-      from_comp: '2020-09-01',
-      to_comp: '2020-09-01'
+      from_comp: 'September 2018',
+      to_comp: 'May 2022'
     }
   }
   return data[form]

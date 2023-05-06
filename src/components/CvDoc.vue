@@ -11,7 +11,7 @@
         <hr class="my-2 border-[#202020]">
       </div>
 
-      <div class="flex flex-col gap-y-3">
+      <div class="flex flex-col gap-y-4">
         <div class="flex">
           <span class="font-bold basis-1/4">SKILLS</span>
           <p class=" basis-3/4">{{ contents.skills.join(', ') }}</p>
