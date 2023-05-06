@@ -8,30 +8,42 @@
           <p>{{ contents.email }}</p>
           <p>{{ contents.phone }}</p>
         </div>
-        <hr class="my-1 border-[#202020]">
+        <hr class="my-2 border-[#202020]">
       </div>
 
-      <br>
+      <div class="flex flex-col gap-y-3">
+        <div class="flex">
+          <span class="font-bold basis-1/4">SKILLS</span>
+          <p class=" basis-3/4">{{ contents.skills.join(', ') }}</p>
+        </div>
 
-      <p>{{ contents.skills.join(', ') }}</p>
+        <div class="flex">
+          <span class="font-bold basis-1/4">EDUCATION</span>
+          <div class="basis-3/4 flex flex-col gap-y-1">
+            <div :key="edu.id" v-for="edu in contents.education">
+              <div class="flex justify-between">
+                <p class="font-bold">{{ edu.university }}</p>
+                <p>{{ `${edu.from_uni} - ${edu.to_uni}` }}</p>
+              </div>
+              <p>{{ edu.degree }}</p>
+            </div>
+          </div>
+        </div>
 
-      <br>
+        <div class="flex">
+          <span class="font-bold basis-1/4">EXPERIENCE</span>
+          <div class="basis-3/4 flex flex-col gap-y-1">
+            <div :key="exp.id" v-for="exp in contents.experience">
+              <div class="flex justify-between">
+                <p class="font-bold">{{ exp.company }}</p>
+                <p>{{ `${exp.from_comp} - ${exp.to_comp}` }}</p>
 
-      <div :key="edu.id" v-for="edu in contents.education">
-        <p>{{ edu.university }}</p>
-        <p>{{ edu.degree }}</p>
-        <p>{{ edu.from_uni }}</p>
-        <p>{{ edu.to_uni }}</p>
-      </div>
-
-      <br>
-
-      <div :key="exp.id" v-for="exp in contents.experience">
-        <p>{{ exp.company }}</p>
-        <p>{{ exp.position }}</p>
-        <p class="whitespace-pre">{{ exp.description }}</p>
-        <p>{{ exp.from_comp }}</p>
-        <p>{{ exp.to_comp }}</p>
+              </div>
+              <p>{{ exp.position }}</p>
+              <p class="whitespace-pre">{{ exp.description }}</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 </template>
