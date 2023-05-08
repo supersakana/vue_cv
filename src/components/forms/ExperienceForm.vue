@@ -61,8 +61,9 @@
                   @input="onInput($event, 'experience')" 
               />
           </div>
+          <hr v-if="exp.id !== contents.experience[contents.experience.length - 1].id" class="border border-[1.5px] rounded-md border-[#f1f4f6] my-8">
       </div>
-      <button class="button-bg mb-3 mt-1 px-4 py-2 font-bold text-white rounded-lg duration-500"  @click="onAddForm('experience')">Add Experience</button>
+      <button class="button-bg my-3 px-4 py-2 font-bold text-white rounded-lg duration-500"  @click="onAddForm('experience')">Add Experience</button>
     </div>
   </div>
 </template>

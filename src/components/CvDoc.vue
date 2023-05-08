@@ -42,13 +42,13 @@
 
       <!-- Skills -->
       <div class="flex flex-col gap-y-4">
-        <div class="flex">
+        <div v-if="contents.skills.length !== 0 " class="flex">
           <span class="font-bold basis-1/4">SKILLS</span>
           <p class=" basis-3/4">{{ contents.skills.join(', ') }}</p>
         </div>
 
         <!-- Education -->
-        <div class="flex">
+        <div v-if="contents.education.length !== 0 " class="flex">
           <span class="font-bold basis-1/4">EDUCATION</span>
           <div class="basis-3/4 flex flex-col gap-y-1">
             <div :key="edu.id" v-for="edu in contents.education">
@@ -62,7 +62,7 @@
         </div>
 
         <!-- Experience -->
-        <div class="flex">
+        <div  v-if="contents.experience.length !== 0 " class="flex">
           <span class="font-bold basis-1/4">EXPERIENCE</span>
           <div class="basis-3/4 flex flex-col gap-y-1">
             <div :key="exp.id" v-for="exp in contents.experience">

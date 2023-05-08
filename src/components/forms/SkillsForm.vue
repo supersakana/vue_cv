@@ -1,7 +1,7 @@
 <template>
     <div id="skills-form" v-if="toggles['skills']">
       <div class="sub-form">
-        <div class="form-control">
+        <div  v-if="contents.skills.length !== 0 " class="form-control">
           <div :key="index" v-for="(skill, index) in contents.skills">
             <div :id="`skill-${index}`" class="flex items-center justify-center my-2">
                 <input id='skills' 
@@ -16,7 +16,7 @@
             </div>
           </div>
         </div>
-        <button class="button-bg mb-3 mt-1 px-4 py-2 font-bold text-white rounded-lg duration-500" @click="onAddSkill">Add Skill</button>
+        <button class="button-bg my-3 px-4 py-2 font-bold text-white rounded-lg duration-500" @click="onAddSkill">Add Skill</button>
       </div>
     </div>
   </template>
