@@ -108,8 +108,12 @@ export default {
         phone: '+1 (234)-567-890',
         location: 'Virginia Beach, VA',
         bio: 'Self-motivated and innovative software developer with excellent communication and problem-solving skills. Confident in collaborative environments.',
-        skills: ['HTML', 'CSS', 'JavaScript', 'Ruby', 'Ruby on Rails', 'RSpec', 'WordPress', 'Divi', 'Elementor', 'Vue', 'Tailwind', 'Git', 'GitHub'],
         linkedin: '',
+        twitter: '',
+        github: '',
+        instagram: '',
+        facebook: '',
+        skills: ['HTML', 'CSS', 'JavaScript', 'Ruby', 'Ruby on Rails', 'RSpec', 'WordPress', 'Divi', 'Elementor', 'Vue', 'Tailwind', 'Git', 'GitHub'],
         education: [defaults('education', '0')],
         experience: [defaults('experience', '0')]
       }

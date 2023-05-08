@@ -46,7 +46,7 @@
         <textarea id='bio'
                   type='text' 
                   placeholder='Tell us about yourself...' 
-                  :value='contents.bio' 
+                  :value='contents.bio'
                   @input="onInput($event, 'general')" 
           />
       </div>

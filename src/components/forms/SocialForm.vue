@@ -8,7 +8,8 @@
           </div>
           <input id='linkedin' 
                 type='text' 
-                placeholder="https://linkedin.com/username"  
+                placeholder="https://linkedin.com/username"
+                :value='contents.linkedin'
                 @input="onInput($event, 'social')" 
             />
         </div>
@@ -20,7 +21,8 @@
           </div>
           <input id='twitter' 
                 type='text' 
-                placeholder="https://twitter.com/username"  
+                placeholder="https://twitter.com/username"
+                :value='contents.twitter'
                 @input="onInput($event, 'social')" 
             />
         </div>
@@ -33,6 +35,7 @@
           <input id='github' 
                 type='text' 
                 placeholder="https://github.com/username"  
+                :value='contents.github'
                 @input="onInput($event, 'social')" 
             />
         </div>
@@ -44,7 +47,8 @@
           </div>
           <input id='instagram' 
                 type='text' 
-                placeholder="https://instagram.com/username"  
+                placeholder="https://instagram.com/username"
+                :value='contents.instagram'
                 @input="onInput($event, 'social')" 
             />
         </div>
@@ -56,7 +60,8 @@
           </div>
           <input id='facebook' 
                 type='text' 
-                placeholder="https://facebook.com/username"  
+                placeholder="https://facebook.com/username"
+                :value='contents.facebook'
                 @input="onInput($event, 'social')" 
             />
         </div>
