@@ -7,6 +7,9 @@ module.exports = {
         poppins: ['Poppins', 'sans-serif'],
         roboto: ['Roboto', 'sans-serif'],
       },
+      backgroundImage: {
+        'pattern': "url('/src/assets/media/doc-bg.svg')",
+      },
     },
   },
   plugins: [],

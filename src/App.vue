@@ -10,7 +10,7 @@
             @export-pdf="exportPDF" />
     </div>
     
-    <div id="cv-doc" ref="document" class="w-full hidden md:flex justify-center bg-[#f1f4f6] h-screen overflow-y-scroll py-20">
+    <div id="cv-doc" ref="document" class="w-full hidden md:flex justify-center bg-no-repeat bg-cover bg-pattern h-screen overflow-y-scroll py-20">
       <CvDoc :contents="contents" />
     </div>
   </div>
@@ -108,9 +108,9 @@ export default {
         phone: '+1 (234)-567-890',
         location: 'Virginia Beach, VA',
         bio: 'Self-motivated and innovative software developer with excellent communication and problem-solving skills. Confident in collaborative environments.',
-        linkedin: '',
-        twitter: '',
-        github: '',
+        linkedin: 'linkedin.com/in/zac-williamson-95b47214b',
+        twitter: 'twitter.com/zaxwilliamson',
+        github: 'github.com/supersakana',
         instagram: '',
         facebook: '',
         skills: ['HTML', 'CSS', 'JavaScript', 'Ruby', 'Ruby on Rails', 'RSpec', 'WordPress', 'Divi', 'Elementor', 'Vue', 'Tailwind', 'Git', 'GitHub'],
