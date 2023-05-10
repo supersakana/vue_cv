@@ -1,7 +1,6 @@
 <template>
-    <div id="projects-1" v-if="section.toggle">
-        <span>{{ section }}</span>
-        <span>{{ index }}</span>
+    <div :id="section.title.toLowerCase() + '-' + index" v-if="section.toggle">
+        <p>Sub form will go here</p>
     </div>
   </template>
   
@@ -13,9 +12,9 @@
       index: Number
       },
     methods: {
-      onInput(e, form){
-        this.$emit('update-contents', e, form)
-      },
+    //   onInput(e, section){
+    //     update form content etc...
+    //   },
       onAddForm(form){
         this.$emit('add-form', form)
       },

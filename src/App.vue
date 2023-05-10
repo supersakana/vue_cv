@@ -122,11 +122,11 @@ export default {
         experience: [defaults('experience', '0')],
         custom: [
           {
-            title: 'Custom 1',
+            title: '',
             toggle: true
           },
           {
-            title: 'Custom 2',
+            title: '',
             toggle: true
           },
         ]

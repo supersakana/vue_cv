@@ -3,12 +3,26 @@
     <div>
       <div :key="index" v-for="(section, index) in contents.custom">
         <div class="mx-4 my-2">
+
+          <!-- Chevron title section -->
           <div class="flex items-center">
               <ion-icon name="chevron-down-outline" class="cursor-pointer hover:text-gray-600 text-2xl" @click="onSectionToggle($event, section)"></ion-icon>
-              <h4 className="section-title">{{ section.title }}</h4>
+              <h4 class="section-title">{{ section.title === '' ?  `Section ${index + 1}` : section.title }}</h4>
           </div>
-          <CustomForm :section="section"
-                      :index="index" />
+
+          <!-- Section title input -->
+          <div :id="section.title.toLowerCase() + '-form'" v-if="section.toggle">
+            <label :htmlFor="'section-title-' + index">Section Title</label>
+            <input :id="section.title.toLowerCase() + '-title'"
+                    :value='section.title' 
+                    type='text'
+                    placeholder='Section Title'
+                    @input="onInput($event, section)" 
+                  />
+            <!-- Loop thorugh each subform -->
+            <CustomForm :section="section"
+                        :index="index" />
+          </div>
         </div>
       </div>
     </div>
@@ -26,9 +40,11 @@ export default {
     contents: Object
     },
   methods: {
-    onInput(e, form){
-      this.$emit('update-contents', e, form)
-    },
+    onInput(e, section){
+        const updated = section
+        updated.title = e.target.value
+        section = updated
+      },
     onAddForm(form){
       this.$emit('add-form', form)
     },
