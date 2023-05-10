@@ -33,7 +33,7 @@
                   
     </div>
 
-      <!-- Education -->
+    <!-- Education -->
 
     <div class="mx-4 my-2">
       <div class="flex items-center">
@@ -41,10 +41,10 @@
         <h4 className="section-title">Education</h4>
       </div>
       <EducationForm :contents="contents" 
-                    :toggles="toggles" 
-                    @update-contents="updateContents"  
-                    @delete-form="deleteForm" 
-                    @add-form="addForm" />
+                     :toggles="toggles" 
+                     @update-contents="updateContents"  
+                     @delete-form="deleteForm" 
+                     @add-form="addForm" />
     </div>
 
       <!-- Experience -->
@@ -55,22 +55,30 @@
         <h4 className="section-title">Experience</h4>
       </div>
       <ExperienceForm :contents="contents" 
+                      :toggles="toggles" 
+                      @update-contents="updateContents"  
+                      @delete-form="deleteForm" 
+                      @add-form="addForm" />
+    </div>
+
+    <!-- Custom -->
+    <CustomSections :contents="contents" 
                     :toggles="toggles" 
                     @update-contents="updateContents"  
                     @delete-form="deleteForm" 
                     @add-form="addForm" />
-    </div>
 
-    <!-- <input type='submit' value='Submit' className="bg-blue-500 text-white rounded-md py-1 px-2 hover:bg-blue-400 duration-500" /> -->
+    <button class="button-bg my-2 mx-4 px-4 py-2 font-bold text-white rounded-lg duration-500"  @click="onAddSection">Add Custom Section</button>
   </form>
 </template>
 
 <script>
 import GeneralForm from './forms/GeneralForm.vue'
 import SocialForm from './forms/SocialForm.vue'
+import SkillsForm from './forms/SkillsForm.vue'
 import EducationForm from './forms/EducationForm.vue'
 import ExperienceForm from './forms/ExperienceForm.vue'
-import SkillsForm from './forms/SkillsForm.vue'
+import CustomSections from './CustomSections.vue'
 
 export default {
   name: 'CvForm',
@@ -79,7 +87,8 @@ export default {
     SkillsForm,
     EducationForm,
     ExperienceForm,
-    SocialForm
+    SocialForm,
+    CustomSections
   },
   props: {
     contents: Object
@@ -97,8 +106,8 @@ export default {
       updated[form] = !updated[form]
       this.toggles = updated
 
-      e.target.name === 'chevron-up-outline' ? 
-      e.target.name = 'chevron-down-outline' : e.target.name = 'chevron-up-outline'
+      e.target.name === 'chevron-down-outline' ? 
+      e.target.name = 'chevron-up-outline' : e.target.name = 'chevron-down-outline'
     },
     addForm(form){
       this.$emit('add-form', form)
@@ -111,16 +120,19 @@ export default {
     },
     deleteSkill(index){
       this.$emit('delete-skill', index)
+    },
+    onAddSection(){
+      this.$emit('add-section')
     }
   },
   data(){
     return {
       toggles: {
-        general: true,
-        social: true,
-        skills: true,
-        education: true,
-        experience: true,
+        general: false,
+        social: false,
+        skills: false,
+        education: false,
+        experience: false,
       }
     }
   },

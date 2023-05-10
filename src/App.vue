@@ -7,7 +7,8 @@
             @delete-form="deleteForm"
             @add-skill="addSkill"
             @delete-skill="deleteSkill"
-            @export-pdf="exportPDF" />
+            @export-pdf="exportPDF"
+            @add-section="addSection" />
     </div>
     
     <div id="cv-doc" ref="document" class="w-full hidden md:flex justify-center bg-no-repeat bg-cover bg-pattern h-screen overflow-y-scroll py-20">
@@ -88,6 +89,9 @@ export default {
       updated['skills'] = updated['skills'].filter((_skill, i) => i !== index)
       this.contents = updated
     },
+    addSection(){
+      console.log('work')
+    },
     exportPDF(){
       // https://stackoverflow.com/questions/60204249/cannnot-convert-html-code-to-pdf-with-vue-html2pdf
       // https://stackoverflow.com/questions/69705309/jspdf-html2canvas-losing-spaces-and-misaligning-text-generally
@@ -115,7 +119,17 @@ export default {
         facebook: '',
         skills: ['HTML', 'CSS', 'JavaScript', 'Ruby', 'Ruby on Rails', 'RSpec', 'WordPress', 'Divi', 'Elementor', 'Vue', 'Tailwind', 'Git', 'GitHub'],
         education: [defaults('education', '0')],
-        experience: [defaults('experience', '0')]
+        experience: [defaults('experience', '0')],
+        custom: [
+          {
+            title: 'Custom 1',
+            toggle: true
+          },
+          {
+            title: 'Custom 2',
+            toggle: true
+          },
+        ]
       }
     }
   }
