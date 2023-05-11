@@ -89,11 +89,10 @@
               <div :key="form_index" v-for="(form, form_index) in section.forms">
                 <div class="flex justify-between">
                   <p class="font-bold">{{ form.header }}</p>
-                  <div>
+                  <div class="flex flex-col items-end">
                     <p v-if="form.from !== '' && form.to !== ''">
                       {{ `${form.from} - ${form.to}` }}
                     </p>
-
                     <div v-if="form.link !== ''" class="flex items-center gap-x-1">
                       <ion-icon name="link"></ion-icon>
                       <a class="text-[12px] hover:underline" :href="form.link">{{ form.link }}</a>
@@ -106,7 +105,7 @@
           </div>
         </div>
       </div>
-    </div>s
+    </div>
 </template>
 
 <script>

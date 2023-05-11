@@ -9,7 +9,7 @@
                            :value='form.header' 
                            type='text' 
                            placeholder='Header' 
-                           @input="onInput($event)" 
+                           @input="onInput($event, form, 'header')" 
                     />
                 </div>
 
@@ -18,7 +18,7 @@
                     <textarea :id="section.title.toLowerCase() + '-description-' + index"
                               :value='form.description' 
                               placeholder='Write a description for your custom section here...' 
-                              @input="onInput($event)" 
+                              @input="onInput($event, form, 'description')" 
                     />
                 </div>
 
@@ -27,7 +27,7 @@
                     <input :id="section.title.toLowerCase() + '-from-' + index" 
                            :value='form.from' 
                            type='text'  
-                           @input="onInput($event)" 
+                           @input="onInput($event, form, 'from')" 
                     />
                 </div>
 
@@ -36,7 +36,7 @@
                     <input :id="section.title.toLowerCase() + '-to-' + index" 
                            :value='form.to' 
                            type='text'
-                           @input="onInput($event)" 
+                           @input="onInput($event, form, 'to')" 
                     />
                 </div>
 
@@ -46,7 +46,7 @@
                            :value='form.link' 
                            type='text'
                            placeholder='https://example.com' 
-                           @input="onInput($event)" 
+                           @input="onInput($event, form, 'link')" 
                     />
                 </div>
 
@@ -65,8 +65,10 @@
       section_index: Number
       },
     methods: {
-      onInput(e){
-        console.log(e.target.id)
+      onInput(e, form, input){
+        const updated = form
+        updated[input] = e.target.value
+        form = updated
       },
       onAddForm(e){
         console.log(e)
