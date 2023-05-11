@@ -14,16 +14,6 @@
                 </div>
 
                 <div className="form-control">
-                    <label htmlFor='subtitle'>Subheader</label>
-                    <input :id="section.title.toLowerCase() + '-subheader-' + index" 
-                           :value='form.subheader' 
-                           type='text' 
-                           placeholder='Subheader' 
-                           @input="onInput($event)" 
-                    />
-                </div>
-
-                <div className="form-control">
                     <label htmlFor='description'>Description</label>
                     <textarea :id="section.title.toLowerCase() + '-description-' + index"
                               :value='form.description' 

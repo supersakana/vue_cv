@@ -126,12 +126,18 @@ export default {
             toggle: true,
             forms:[
               {
-                header: '',
-                subheader: '',
-                description: '',
-                from: '',
-                to: '',
-                link: ''
+                header: 'Gemz',
+                description: 'Write a simple description here of what you did',
+                from: 'September 2018',
+                to: 'May 2022',
+                link: 'gemz.onrender.com'
+              },
+              {
+                header: 'Vue CV',
+                description: 'Write a simple description here of what you did',
+                from: 'September 2018',
+                to: 'May 2022',
+                link: 'github/supersakana/vue_cv'
               },
             ]
           },

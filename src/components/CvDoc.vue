@@ -40,8 +40,9 @@
         <hr class="my-2 border-[#202020]">
       </div>
 
-      <!-- Skills -->
       <div class="flex flex-col gap-y-4">
+
+        <!-- Skills -->
         <div v-if="contents.skills.length !== 0 " class="flex">
           <span class="font-bold basis-1/4">SKILLS</span>
           <p class=" basis-3/4">{{ contents.skills.join(', ') }}</p>
@@ -69,15 +70,43 @@
               <div class="flex justify-between">
                 <p class="font-bold">{{ exp.company }}</p>
                 <p>{{ `${exp.from_comp} - ${exp.to_comp}` }}</p>
-
               </div>
               <p>{{ exp.position }}</p>
-              <p class="whitespace-pre">{{ exp.description }}</p>
+              <p class="whitespace-pre-line">{{ exp.description }}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Custom Sections -->
+        <div  v-if="contents.custom.length !== 0 ">
+          <div class="flex" :key="section_index" v-for="(section, section_index) in contents.custom">
+            <span class="font-bold basis-1/4 uppercase">
+              {{ section.title === '' ? `Section ${section_index + 1}` : section.title }}
+            </span>
+
+            <!-- Loops through each section form -->
+            <div class="basis-3/4 flex flex-col gap-y-1">
+              <div :key="form_index" v-for="(form, form_index) in section.forms">
+                <div class="flex justify-between">
+                  <p class="font-bold">{{ form.header }}</p>
+                  <div>
+                    <p v-if="form.from !== '' && form.to !== ''">
+                      {{ `${form.from} - ${form.to}` }}
+                    </p>
+
+                    <div v-if="form.link !== ''" class="flex items-center gap-x-1">
+                      <ion-icon name="link"></ion-icon>
+                      <a class="text-[12px] hover:underline" :href="form.link">{{ form.link }}</a>
+                    </div>
+                  </div>
+                </div>
+                <p class="whitespace-pre-line">{{ form.description }}</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </div>s
 </template>
 
 <script>
