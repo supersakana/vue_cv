@@ -11,17 +11,21 @@
           </div>
 
           <!-- Section title input -->
-          <div :id="section.title.toLowerCase() + '-form'" v-if="section.toggle">
-            <label :htmlFor="'section-title-' + index">Section Title</label>
-            <input :id="section.title.toLowerCase() + '-title'"
-                    :value='section.title' 
-                    type='text'
-                    placeholder='Section Title'
-                    @input="onInput($event, section)" 
-                  />
+          <div :id="section.title.toLowerCase() + '-section'" v-if="section.toggle">
+            <div class="form-control">
+              <label :htmlFor="'section-title-' + index">Section Title</label>
+              <input :id="section.title.toLowerCase() + '-title'"
+                      :value='section.title' 
+                      class="my-2"
+                      type='text'
+                      placeholder='Section Title'
+                      @input="onInput($event, section)" 
+                    />
+            </div>
+
             <!-- Loop thorugh each subform -->
             <CustomForm :section="section"
-                        :index="index" />
+                        :section_index="index" />
           </div>
         </div>
       </div>
@@ -52,7 +56,6 @@ export default {
       this.$emit('delete-form', form, id)
     },
     onSectionToggle(e, section){
-      // console.log(index, e.target.name, section)
       const updated = section
       updated.toggle = !updated.toggle
       section = updated

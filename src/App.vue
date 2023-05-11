@@ -123,11 +123,31 @@ export default {
         custom: [
           {
             title: '',
-            toggle: true
+            toggle: true,
+            forms:[
+              {
+                title: '',
+                subtitle: '',
+                description: '',
+                from: '',
+                to: '',
+                link: ''
+              },
+            ]
           },
           {
             title: '',
-            toggle: true
+            toggle: true,
+            forms:[
+            {
+                title: '',
+                subtitle: '',
+                description: '',
+                from: '',
+                to: '',
+                link: ''
+              }
+            ]
           },
         ]
       }
