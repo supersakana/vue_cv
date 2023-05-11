@@ -126,8 +126,8 @@ export default {
             toggle: true,
             forms:[
               {
-                title: '',
-                subtitle: '',
+                header: '',
+                subheader: '',
                 description: '',
                 from: '',
                 to: '',
@@ -135,20 +135,20 @@ export default {
               },
             ]
           },
-          {
-            title: '',
-            toggle: true,
-            forms:[
-            {
-                title: '',
-                subtitle: '',
-                description: '',
-                from: '',
-                to: '',
-                link: ''
-              }
-            ]
-          },
+          // {
+          //   title: '',
+          //   toggle: true,
+          //   forms:[
+          //   {
+          //       title: '',
+          //       subtitle: '',
+          //       description: '',
+          //       from: '',
+          //       to: '',
+          //       link: ''
+          //     }
+          //   ]
+          // },
         ]
       }
     }

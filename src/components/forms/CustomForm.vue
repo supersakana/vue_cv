@@ -4,21 +4,21 @@
             <div :key="index" v-for="(form, index) in section.forms">
 
                 <div className="form-control">
-                    <label htmlFor='title'>Title</label>
-                    <input :id="section.title.toLowerCase() + '-title-' + index" 
-                           :value='form.title' 
+                    <label htmlFor='title'>Header</label>
+                    <input :id="section.title.toLowerCase() + '-header-' + index" 
+                           :value='form.header' 
                            type='text' 
-                           placeholder='Title' 
+                           placeholder='Header' 
                            @input="onInput($event)" 
                     />
                 </div>
 
                 <div className="form-control">
-                    <label htmlFor='subtitle'>Subtitle</label>
-                    <input :id="section.title.toLowerCase() + '-subtitle-' + index" 
-                           :value='form.subtitle' 
+                    <label htmlFor='subtitle'>Subheader</label>
+                    <input :id="section.title.toLowerCase() + '-subheader-' + index" 
+                           :value='form.subheader' 
                            type='text' 
-                           placeholder='Subtitle' 
+                           placeholder='Subheader' 
                            @input="onInput($event)" 
                     />
                 </div>
@@ -62,6 +62,7 @@
 
                 <hr v-if="section.forms[index] !== section.forms[section.forms.length - 1]" class="border border-[1.5px] rounded-md border-[#f1f4f6] my-8">
             </div>
+            <button class="button-bg my-3 px-4 py-2 font-bold text-white rounded-lg duration-500"  @click="onAddForm($event)">Add {{ singularize(section.title) }}</button>
         </div>
     </div>
   </template>
@@ -77,11 +78,33 @@
       onInput(e){
         console.log(e.target.id)
       },
-      onAddForm(form){
-        this.$emit('add-form', form)
+      onAddForm(e){
+        console.log(e)
+        // this.$emit('add-form', form)
       },
       onDeleteForm(form, id){
         this.$emit('delete-form', form, id)
+      },
+
+      // https://stackoverflow.com/questions/57429677/javascript-make-a-word-singular-singularize
+      singularize(word) {
+        const endings = {
+            ves: 'fe',
+            ies: 'y',
+            i: 'us',
+            zes: 'ze',
+            ses: 's',
+            es: 'e',
+            s: ''
+        };
+        if(word === ''){
+            return 'Form'
+        } else {
+            return word.replace(
+            new RegExp(`(${Object.keys(endings).join('|')})$`), 
+            r => endings[r]
+            );  
+        }
       }
     },
   }
