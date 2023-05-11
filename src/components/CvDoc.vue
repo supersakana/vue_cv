@@ -43,13 +43,13 @@
       <div class="flex flex-col gap-y-4">
 
         <!-- Skills -->
-        <div v-if="contents.skills.length !== 0 " class="flex">
+        <div v-if="contents.skills.length !== 0" class="flex">
           <span class="font-bold basis-1/4">SKILLS</span>
           <p class=" basis-3/4">{{ contents.skills.join(', ') }}</p>
         </div>
 
         <!-- Education -->
-        <div v-if="contents.education.length !== 0 " class="flex">
+        <div v-if="contents.education.length !== 0" class="flex">
           <span class="font-bold basis-1/4">EDUCATION</span>
           <div class="basis-3/4 flex flex-col gap-y-1">
             <div :key="edu.id" v-for="edu in contents.education">
@@ -63,7 +63,7 @@
         </div>
 
         <!-- Experience -->
-        <div  v-if="contents.experience.length !== 0 " class="flex">
+        <div  v-if="contents.experience.length !== 0" class="flex">
           <span class="font-bold basis-1/4">EXPERIENCE</span>
           <div class="basis-3/4 flex flex-col gap-y-1">
             <div :key="exp.id" v-for="exp in contents.experience">
@@ -78,9 +78,9 @@
         </div>
 
         <!-- Custom Sections -->
-        <div  v-if="contents.custom.length !== 0 ">
+        <div  v-if="contents.custom.length !== 0">
           <div class="flex" :key="section_index" v-for="(section, section_index) in contents.custom">
-            <span class="font-bold basis-1/4 uppercase">
+            <span  v-if="section.forms.length !== 0" class="font-bold basis-1/4 uppercase">
               {{ section.title === '' ? `Section ${section_index + 1}` : section.title }}
             </span>
 

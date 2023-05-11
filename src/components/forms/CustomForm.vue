@@ -4,7 +4,11 @@
             <div :key="index" v-for="(form, index) in section.forms">
 
                 <div className="form-control">
-                    <label htmlFor='title'>Header</label>
+                    <div class="flex items-center justify-between">
+                        <label htmlFor='title'>Header</label>
+                        <ion-icon name="close-circle" class="text-2xl text-gray-300 hover:text-red-500 text-xl cursor-pointer ml-[14px] min-w-[20px] min-h-[20px]" @click="onDeleteForm(section, index)"></ion-icon>
+                    </div>
+            
                     <input :id="section.title.toLowerCase() + '-header-' + index" 
                            :value='form.header' 
                            type='text' 
@@ -83,8 +87,10 @@
         updated['forms'] = [...updated['forms'], newForm]
         section = updated
       },
-      onDeleteForm(form, id){
-        this.$emit('delete-form', form, id)
+      onDeleteForm(section, index){
+        let updated = section
+        updated.forms = updated.forms.filter((_form, i) => i !== index)
+        section = updated
       },
 
       // https://stackoverflow.com/questions/57429677/javascript-make-a-word-singular-singularize
