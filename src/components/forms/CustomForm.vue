@@ -52,7 +52,7 @@
 
                 <hr v-if="section.forms[index] !== section.forms[section.forms.length - 1]" class="border border-[1.5px] rounded-md border-[#f1f4f6] my-8">
             </div>
-            <button class="button-bg my-3 px-4 py-2 font-bold text-white rounded-lg duration-500"  @click="onAddForm($event)">Add {{ singularize(section.title) }}</button>
+            <button class="button-bg my-3 px-4 py-2 font-bold text-white rounded-lg duration-500"  @click="onAddForm(section)">Add {{ singularize(section.title) }}</button>
         </div>
     </div>
   </template>
@@ -70,9 +70,18 @@
         updated[input] = e.target.value
         form = updated
       },
-      onAddForm(e){
-        console.log(e)
-        // this.$emit('add-form', form)
+      onAddForm(section){
+        const updated = section
+        const newForm = {
+            header: '',
+            description: '',
+            from: '',
+            to: '',
+            link: ''
+        }
+
+        updated['forms'] = [...updated['forms'], newForm]
+        section = updated
       },
       onDeleteForm(form, id){
         this.$emit('delete-form', form, id)

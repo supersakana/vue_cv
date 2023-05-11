@@ -132,29 +132,21 @@ export default {
                 to: 'May 2022',
                 link: 'gemz.onrender.com'
               },
-              {
-                header: 'Vue CV',
-                description: 'Write a simple description here of what you did',
-                from: 'September 2018',
-                to: 'May 2022',
-                link: 'github/supersakana/vue_cv'
+            ]
+          },
+          {
+            title: 'Orginizations',
+            toggle: true,
+            forms:[
+            {
+              header: 'Vue CV',
+              description: 'Write a simple description here of what you did',
+              from: 'September 2018',
+              to: 'May 2022',
+              link: 'github/supersakana/vue_cv'
               },
             ]
           },
-          // {
-          //   title: '',
-          //   toggle: true,
-          //   forms:[
-          //   {
-          //       title: '',
-          //       subtitle: '',
-          //       description: '',
-          //       from: '',
-          //       to: '',
-          //       link: ''
-          //     }
-          //   ]
-          // },
         ]
       }
     }
