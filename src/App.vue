@@ -1,6 +1,8 @@
 <template>
   <div class="flex">
-    <div class="w-full md:max-w-[450px] font-poppins border-r">
+    <ion-icon id="dark-mode" class="absolute right-0 text-3xl my-6 mx-5 text-[#404040] cursor-pointer hover:text-[#707070] duration-500" name="moon" @click="darkModeToggle($event)"></ion-icon>
+
+    <div class="w-full md:max-w-[450px] font-poppins border-r bg-white dark:bg-black">
       <CvForm :contents="contents" 
             @update-contents="updateContents" 
             @add-form="addForm"
@@ -108,6 +110,17 @@ export default {
       updated['custom'] = [...updated['custom'], newSection]
       this.contents = updated
     },
+    darkModeToggle(e){
+      if(e.target.name === 'moon'){
+            e.target.name = 'sunny';
+            document.documentElement.classList.add('dark')
+            localStorage.theme = 'dark'
+        } else {
+            e.target.name = 'moon';
+            document.documentElement.classList.remove('dark')
+            localStorage.theme = 'light'
+        }
+    },
     exportPDF(){
       // https://stackoverflow.com/questions/60204249/cannnot-convert-html-code-to-pdf-with-vue-html2pdf
       // https://stackoverflow.com/questions/69705309/jspdf-html2canvas-losing-spaces-and-misaligning-text-generally
@@ -139,7 +152,7 @@ export default {
         custom: []
       }
     }
-  }
+  },
 }
 </script>
 
