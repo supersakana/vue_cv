@@ -13,14 +13,18 @@
           <!-- Section title input -->
           <div :id="section.title.toLowerCase() + '-section'" v-if="section.toggle">
             <div class="form-control">
-              <label :htmlFor="'section-title-' + index">Section Title</label>
+              <div class="flex justify-between">
+                <label :htmlFor="'section-title-' + index">Section Title</label>
+                <span class="text-gray-400 hover:text-red-500 cursor-pointer underline" @click="onSectionDelete(contents, index)">Remove Section</span>
+              </div>
+
               <input :id="section.title.toLowerCase() + '-title'"
-                      :value='section.title' 
-                      class="my-2"
-                      type='text'
-                      placeholder='Section Title'
-                      @input="onInput($event, section)" 
-                    />
+                        :value='section.title' 
+                        class="my-2"
+                        type='text'
+                        placeholder='Section Title'
+                        @input="onInput($event, section)" 
+                      />
             </div>
 
             <!-- Loop thorugh each subform -->
@@ -63,6 +67,11 @@ export default {
       e.target.name === 'chevron-down-outline' ? 
       e.target.name = 'chevron-up-outline' : e.target.name = 'chevron-down-outline'
     },
+    onSectionDelete(contents, index){
+      const updated = contents
+      updated.custom = updated.custom.filter((_section, i) => i !== index)
+      contents = updated
+    }
   },
 }
 </script>
