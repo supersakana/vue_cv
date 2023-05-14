@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="onSubmit" class="h-screen overflow-y-scroll shadow-md py-1 px-3">
+  <form @submit.prevent="onSubmit" class="h-screen overflow-y-scroll shadow-md py-1 px-3 flex flex-col">
 
     <!-- General -->
     <div class="mx-4 my-2">
@@ -68,7 +68,7 @@
                     @delete-form="deleteForm" 
                     @add-form="addForm" />
 
-    <button class="button-bg my-2 mx-4 px-4 py-2 font-bold text-white rounded-lg duration-500"  @click="onAddSection">Add Custom Section</button>
+    <button class="mt-auto button-bg my-6 mx-4 px-4 py-2 font-bold text-white rounded-lg duration-500"  @click="onAddSection">Add Custom Section</button>
   </form>
 </template>
 

@@ -90,7 +90,23 @@ export default {
       this.contents = updated
     },
     addSection(){
-      console.log('work')
+      let updated = {...this.contents}
+      const newSection = {
+            title: '',
+            toggle: false,
+            forms:[
+              {
+                header: '',
+                description: '',
+                from: '',
+                to: '',
+                link: ''
+              },
+            ]
+          }
+
+      updated['custom'] = [...updated['custom'], newSection]
+      this.contents = updated
     },
     exportPDF(){
       // https://stackoverflow.com/questions/60204249/cannnot-convert-html-code-to-pdf-with-vue-html2pdf
@@ -120,34 +136,7 @@ export default {
         skills: ['HTML', 'CSS', 'JavaScript', 'Ruby', 'Ruby on Rails', 'RSpec', 'WordPress', 'Divi', 'Elementor', 'Vue', 'Tailwind', 'Git', 'GitHub'],
         education: [defaults('education', '0')],
         experience: [defaults('experience', '0')],
-        custom: [
-          {
-            title: '',
-            toggle: true,
-            forms:[
-              {
-                header: 'Gemz',
-                description: 'Write a simple description here of what you did',
-                from: 'September 2018',
-                to: 'May 2022',
-                link: 'gemz.onrender.com'
-              },
-            ]
-          },
-          {
-            title: 'Orginizations',
-            toggle: true,
-            forms:[
-            {
-              header: 'Vue CV',
-              description: 'Write a simple description here of what you did',
-              from: 'September 2018',
-              to: 'May 2022',
-              link: 'github/supersakana/vue_cv'
-              },
-            ]
-          },
-        ]
+        custom: []
       }
     }
   }
