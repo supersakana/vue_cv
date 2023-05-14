@@ -93,7 +93,7 @@ export default {
       let updated = {...this.contents}
       const newSection = {
             title: '',
-            toggle: false,
+            toggle: true,
             forms:[
               {
                 header: '',

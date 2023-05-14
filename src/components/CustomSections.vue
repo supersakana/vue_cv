@@ -5,9 +5,13 @@
         <div class="mx-4 my-2">
 
           <!-- Chevron title section -->
-          <div class="flex items-center">
-              <ion-icon name="chevron-down-outline" class="cursor-pointer hover:text-gray-600 text-2xl" @click="onSectionToggle($event, section)"></ion-icon>
-              <h4 class="section-title">{{ section.title === '' ?  `Section ${index + 1}` : section.title }}</h4>
+          <div class="flex justify-between">
+            <div class="flex items-center">
+                <ion-icon name="chevron-down-outline" class="cursor-pointer hover:text-gray-600 text-2xl" @click="onSectionToggle($event, section)"></ion-icon>
+                <h4 class="section-title">{{ section.title === '' ?  `Section ${index + 1}` : section.title }}</h4>
+            </div>
+
+            <SectionSlider />
           </div>
 
           <!-- Section title input -->
@@ -39,10 +43,13 @@
 
 <script>
 import CustomForm from './forms/CustomForm.vue'
+import SectionSlider from './SectionSlider.vue'
+
 export default {
   name: 'CustomSections',
   components: {
-    CustomForm
+    CustomForm,
+    SectionSlider
   },
   props: {
     contents: Object

@@ -36,10 +36,15 @@
     <!-- Education -->
 
     <div class="mx-4 my-2">
-      <div class="flex items-center">
-        <ion-icon name="chevron-down-outline" class="cursor-pointer hover:text-gray-600 text-2xl" @click="onFormToggle($event, 'education')"></ion-icon>
-        <h4 className="section-title">Education</h4>
+      <div class="flex justify-between">
+        <div class="flex items-center">
+          <ion-icon name="chevron-down-outline" class="cursor-pointer hover:text-gray-600 text-2xl" @click="onFormToggle($event, 'education')"></ion-icon>
+          <h4 className="section-title">Education</h4>
+        </div>
+
+        <SectionSlider />
       </div>
+
       <EducationForm :contents="contents" 
                      :toggles="toggles" 
                      @update-contents="updateContents"  
@@ -50,10 +55,16 @@
       <!-- Experience -->
 
     <div class="mx-4 my-2">
-      <div class="flex items-center">
-        <ion-icon name="chevron-down-outline" @click="onFormToggle($event, 'experience')" class="cursor-pointer hover:text-gray-600 text-2xl"></ion-icon>
-        <h4 className="section-title">Experience</h4>
+      <div class="flex justify-between">
+        <div class="flex items-center">
+          <ion-icon name="chevron-down-outline" @click="onFormToggle($event, 'experience')" class="cursor-pointer hover:text-gray-600 text-2xl"></ion-icon>
+          <h4 className="section-title">Experience</h4>
+        </div>
+
+        <SectionSlider />
+        
       </div>
+
       <ExperienceForm :contents="contents" 
                       :toggles="toggles" 
                       @update-contents="updateContents"  
@@ -79,6 +90,7 @@ import SkillsForm from './forms/SkillsForm.vue'
 import EducationForm from './forms/EducationForm.vue'
 import ExperienceForm from './forms/ExperienceForm.vue'
 import CustomSections from './CustomSections.vue'
+import SectionSlider from './SectionSlider.vue'
 
 export default {
   name: 'CvForm',
@@ -88,7 +100,8 @@ export default {
     EducationForm,
     ExperienceForm,
     SocialForm,
-    CustomSections
+    CustomSections,
+    SectionSlider,
   },
   props: {
     contents: Object
@@ -128,11 +141,11 @@ export default {
   data(){
     return {
       toggles: {
-        general: false,
-        social: false,
-        skills: false,
-        education: false,
-        experience: false,
+        general: true,
+        social: true,
+        skills: true,
+        education: true,
+        experience: true,
       }
     }
   },
