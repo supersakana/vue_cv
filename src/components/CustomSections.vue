@@ -10,8 +10,6 @@
                 <ion-icon name="chevron-down-outline" class="cursor-pointer hover:text-gray-600 text-2xl dark:text-white" @click="onSectionToggle($event, section)"></ion-icon>
                 <h4 class="section-title dark:text-white">{{ section.title === '' ?  `Section ${index + 1}` : section.title }}</h4>
             </div>
-
-            <SectionSlider />
           </div>
 
           <!-- Section title input -->
@@ -43,13 +41,11 @@
 
 <script>
 import CustomForm from './forms/CustomForm.vue'
-import SectionSlider from './SectionSlider.vue'
 
 export default {
   name: 'CustomSections',
   components: {
     CustomForm,
-    SectionSlider
   },
   props: {
     contents: Object

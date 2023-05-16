@@ -21,9 +21,11 @@
 
     <!-- Skills -->
     <div class="mx-4 my-2">
-      <div class="flex items-center">
-        <ion-icon name="chevron-down-outline" @click="onFormToggle($event, 'skills')" class="cursor-pointer hover:text-gray-600 text-2xl dark:text-white"></ion-icon>
-        <h4 className="section-title dark:text-white">Skills</h4>
+      <div class="flex justify-between">
+          <div class="flex items-center">
+            <ion-icon name="chevron-down-outline" @click="onFormToggle($event, 'skills')" class="cursor-pointer hover:text-gray-600 text-2xl dark:text-white"></ion-icon>
+            <h4 className="section-title dark:text-white">Skills</h4>
+          </div>
       </div>
       <SkillsForm :contents="contents"
                   :toggles="toggles"  
@@ -41,8 +43,6 @@
           <ion-icon name="chevron-down-outline" class="cursor-pointer hover:text-gray-600 text-2xl dark:text-white" @click="onFormToggle($event, 'education')"></ion-icon>
           <h4 className="section-title dark:text-white">Education</h4>
         </div>
-
-        <SectionSlider />
       </div>
 
       <EducationForm :contents="contents" 
@@ -60,9 +60,6 @@
           <ion-icon name="chevron-down-outline" @click="onFormToggle($event, 'experience')" class="cursor-pointer hover:text-gray-600 text-2xl dark:text-white"></ion-icon>
           <h4 className="section-title dark:text-white">Experience</h4>
         </div>
-
-        <SectionSlider />
-        
       </div>
 
       <ExperienceForm :contents="contents" 
@@ -90,7 +87,6 @@ import SkillsForm from './forms/SkillsForm.vue'
 import EducationForm from './forms/EducationForm.vue'
 import ExperienceForm from './forms/ExperienceForm.vue'
 import CustomSections from './CustomSections.vue'
-import SectionSlider from './SectionSlider.vue'
 
 export default {
   name: 'CvForm',
@@ -101,15 +97,14 @@ export default {
     ExperienceForm,
     SocialForm,
     CustomSections,
-    SectionSlider,
   },
   props: {
-    contents: Object
+    contents: Object,
+    sliders: Array
     },
   methods: {
     onSubmit(e) {
       e.preventDefault
-      // this.$emit('export-pdf')
     },
     updateContents(e, form){
       this.$emit('update-contents', e, form)

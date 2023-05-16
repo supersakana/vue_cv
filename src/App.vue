@@ -4,13 +4,13 @@
 
     <div class="w-full md:max-w-[450px] font-poppins border-r bg-white dark:bg-[#0b1115] dark:border-none duration-500">
       <CvForm :contents="contents" 
-            @update-contents="updateContents" 
-            @add-form="addForm"
-            @delete-form="deleteForm"
-            @add-skill="addSkill"
-            @delete-skill="deleteSkill"
-            @export-pdf="exportPDF"
-            @add-section="addSection" />
+              @update-contents="updateContents" 
+              @add-form="addForm"
+              @delete-form="deleteForm"
+              @add-skill="addSkill"
+              @delete-skill="deleteSkill"
+              @export-pdf="exportPDF"
+              @add-section="addSection" />
     </div>
     
     <div id="cv-doc" ref="document" class="w-full hidden md:flex justify-center bg-no-repeat bg-cover bg-pattern dark:bg-pattern-dark h-screen overflow-y-scroll py-20 duration-500">
@@ -158,7 +158,8 @@ export default {
         education: [defaults('education', '0')],
         experience: [defaults('experience', '0')],
         custom: []
-      }
+      },
+      sliders: ['skills', 'education', 'experience']
     }
   },
 }
