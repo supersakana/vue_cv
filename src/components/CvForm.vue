@@ -4,8 +4,8 @@
     <!-- General -->
     <div class="mx-4 my-2">
       <div class="flex items-center">
-        <ion-icon name="chevron-down-outline" @click="onFormToggle($event, 'general')" class="cursor-pointer hover:text-gray-600 text-2xl"></ion-icon>
-        <h4 className="section-title">General</h4>
+        <ion-icon name="chevron-down-outline" @click="onFormToggle($event, 'general')" class="cursor-pointer hover:text-gray-600 text-2xl dark:text-white"></ion-icon>
+        <h4 className="section-title dark:text-white">General</h4>
       </div>
       <GeneralForm :contents="contents" :toggles="toggles" @update-contents="updateContents" />
     </div>
@@ -13,8 +13,8 @@
     <!-- Social -->
     <div class="mx-4 my-2">
       <div class="flex items-center">
-        <ion-icon name="chevron-down-outline" @click="onFormToggle($event, 'social')" class="cursor-pointer hover:text-gray-600 text-2xl"></ion-icon>
-        <h4 className="section-title">Social</h4>
+        <ion-icon name="chevron-down-outline" @click="onFormToggle($event, 'social')" class="cursor-pointer hover:text-gray-600 text-2xl dark:text-white"></ion-icon>
+        <h4 className="section-title dark:text-white">Social</h4>
       </div>
       <SocialForm :contents="contents" :toggles="toggles" @update-contents="updateContents" />
     </div>
@@ -22,8 +22,8 @@
     <!-- Skills -->
     <div class="mx-4 my-2">
       <div class="flex items-center">
-        <ion-icon name="chevron-down-outline" @click="onFormToggle($event, 'skills')" class="cursor-pointer hover:text-gray-600 text-2xl"></ion-icon>
-        <h4 className="section-title">Skills</h4>
+        <ion-icon name="chevron-down-outline" @click="onFormToggle($event, 'skills')" class="cursor-pointer hover:text-gray-600 text-2xl dark:text-white"></ion-icon>
+        <h4 className="section-title dark:text-white">Skills</h4>
       </div>
       <SkillsForm :contents="contents"
                   :toggles="toggles"  
@@ -38,8 +38,8 @@
     <div class="mx-4 my-2">
       <div class="flex justify-between">
         <div class="flex items-center">
-          <ion-icon name="chevron-down-outline" class="cursor-pointer hover:text-gray-600 text-2xl" @click="onFormToggle($event, 'education')"></ion-icon>
-          <h4 className="section-title">Education</h4>
+          <ion-icon name="chevron-down-outline" class="cursor-pointer hover:text-gray-600 text-2xl dark:text-white" @click="onFormToggle($event, 'education')"></ion-icon>
+          <h4 className="section-title dark:text-white">Education</h4>
         </div>
 
         <SectionSlider />
@@ -57,8 +57,8 @@
     <div class="mx-4 my-2">
       <div class="flex justify-between">
         <div class="flex items-center">
-          <ion-icon name="chevron-down-outline" @click="onFormToggle($event, 'experience')" class="cursor-pointer hover:text-gray-600 text-2xl"></ion-icon>
-          <h4 className="section-title">Experience</h4>
+          <ion-icon name="chevron-down-outline" @click="onFormToggle($event, 'experience')" class="cursor-pointer hover:text-gray-600 text-2xl dark:text-white"></ion-icon>
+          <h4 className="section-title dark:text-white">Experience</h4>
         </div>
 
         <SectionSlider />
@@ -79,7 +79,7 @@
                     @delete-form="deleteForm" 
                     @add-form="addForm" />
 
-    <button class="mt-auto button-bg my-6 mx-4 px-4 py-2 font-bold text-white rounded-lg duration-500"  @click="onAddSection">Add Custom Section</button>
+    <button class="mt-auto button-bg my-6 mx-4 px-4 py-2 font-bold text-white rounded-lg duration-500 dark:text-white"  @click="onAddSection">Add Custom Section</button>
   </form>
 </template>
 

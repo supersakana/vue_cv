@@ -1,18 +1,18 @@
 <template>
     <div id="skills-form" v-if="toggles['skills']">
-      <div class="sub-form">
+      <div class="sub-form dark:border-[#364150]">
         <div  v-if="contents.skills.length !== 0 " class="form-control">
           <div :key="index" v-for="(skill, index) in contents.skills">
             <div :id="`skill-${index}`" class="flex items-center justify-center my-2">
                 <input id='skills' 
-                  type='text' 
-                  :value="skill"
-                  :data-id="index" 
-                  placeholder="Enter a skill here..." 
-                  @input="onInput($event, 'skills')"
-                  class="w-full"
+                       type='text' 
+                       :value="skill"
+                       :data-id="index" 
+                       placeholder="Enter a skill here..." 
+                       @input="onInput($event, 'skills')"
+                       class="w-full dark:bg-[#171e25] dark:text-white"
                   />
-                <ion-icon class="text-gray-300 hover:text-red-500 text-xl cursor-pointer ml-[14px] min-w-[16px] min-h-[16px]" @click="onDeleteSkill(index)" name="close-circle"></ion-icon>
+                <ion-icon class="text-gray-300 text-xl cursor-pointer ml-[14px] min-w-[16px] min-h-[16px]" @click="onDeleteSkill(index)" name="close-circle"></ion-icon>
             </div>
           </div>
         </div>

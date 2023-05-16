@@ -1,9 +1,10 @@
 <template>
   <div id="general-form" v-if="toggles['general']">
-    <div class="sub-form">
+    <div class="sub-form dark:border-[#364150]">
       <div className="form-control">
-        <label htmlFor='name'>Name</label>
-        <input id='name' 
+        <label class="dark:text-gray-300" htmlFor='name'>Name</label>
+        <input id='name'
+              class="dark:bg-[#171e25] dark:text-white"
               type='text' 
               placeholder="John Doe" 
               :value='contents.name' 
@@ -12,8 +13,9 @@
       </div>
 
       <div className="form-control">
-        <label htmlFor='email'>Email</label>
+        <label class="dark:text-gray-300" htmlFor='email'>Email</label>
         <input id='email'
+              class="dark:bg-[#171e25] dark:text-white"
               type='email' 
               placeholder='example@this.com' 
               :value='contents.email' 
@@ -22,18 +24,20 @@
       </div>
 
       <div className="form-control">
-        <label htmlFor='phone'>Phone</label>
+        <label class="dark:text-gray-300" htmlFor='phone'>Phone</label>
         <input id='phone'  
-              type='phone' 
-              placeholder='+1 (123)-456-789'
-              :value='contents.phone'
-              @input="onInput($event, 'general')" 
+               class="dark:bg-[#171e25] dark:text-white"
+               type='phone' 
+               placeholder='+1 (123)-456-789'
+               :value='contents.phone'
+               @input="onInput($event, 'general')" 
           />
       </div>
 
       <div className="form-control">
-        <label htmlFor='location'>Location</label>
+        <label class="dark:text-gray-300" htmlFor='location'>Location</label>
         <input id='location'
+              class="dark:bg-[#171e25] dark:text-white"
               type='text' 
               placeholder='1800 Example St' 
               :value='contents.location' 
@@ -42,8 +46,9 @@
       </div>
 
       <div className="form-control">
-        <label htmlFor='bio'>Bio</label>
+        <label class="dark:text-gray-300" htmlFor='bio'>Bio</label>
         <textarea id='bio'
+                  class="dark:bg-[#171e25] dark:text-white"
                   type='text' 
                   placeholder='Tell us about yourself...' 
                   :value='contents.bio'

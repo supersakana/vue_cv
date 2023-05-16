@@ -7,8 +7,8 @@
           <!-- Chevron title section -->
           <div class="flex justify-between">
             <div class="flex items-center">
-                <ion-icon name="chevron-down-outline" class="cursor-pointer hover:text-gray-600 text-2xl" @click="onSectionToggle($event, section)"></ion-icon>
-                <h4 class="section-title">{{ section.title === '' ?  `Section ${index + 1}` : section.title }}</h4>
+                <ion-icon name="chevron-down-outline" class="cursor-pointer hover:text-gray-600 text-2xl dark:text-white" @click="onSectionToggle($event, section)"></ion-icon>
+                <h4 class="section-title dark:text-white">{{ section.title === '' ?  `Section ${index + 1}` : section.title }}</h4>
             </div>
 
             <SectionSlider />
@@ -18,13 +18,13 @@
           <div :id="section.title.toLowerCase() + '-section'" v-if="section.toggle">
             <div class="form-control">
               <div class="flex justify-between">
-                <label :htmlFor="'section-title-' + index">Section Title</label>
-                <span class="text-gray-400 hover:text-red-500 cursor-pointer underline" @click="onSectionDelete(contents, index)">Remove Section</span>
+                <label class="dark:text-gray-300" :htmlFor="'section-title-' + index">Section Title</label>
+                <span class="text-gray-400 hover:text-red-500 cursor-pointer underline text-gray-300" @click="onSectionDelete(contents, index)">Remove Section</span>
               </div>
 
               <input :id="section.title.toLowerCase() + '-title'"
                         :value='section.title' 
-                        class="my-2"
+                        class="my-2 dark:bg-[#171e25] dark:text-white"
                         type='text'
                         placeholder='Section Title'
                         @input="onInput($event, section)" 

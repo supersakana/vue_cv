@@ -1,8 +1,8 @@
 <template>
   <div class="flex">
-    <ion-icon id="dark-mode" class="absolute right-0 text-3xl my-6 mx-5 text-[#404040] cursor-pointer hover:text-[#707070] duration-500" name="moon" @click="darkModeToggle($event)"></ion-icon>
+    <ion-icon id="dark-mode" class="absolute right-0 text-3xl my-6 mx-5 text-[#404040] cursor-pointer hover:text-[#808080] duration-500" name="moon" @click="darkModeToggle($event)"></ion-icon>
 
-    <div class="w-full md:max-w-[450px] font-poppins border-r bg-white dark:bg-black">
+    <div class="w-full md:max-w-[450px] font-poppins border-r bg-white dark:bg-[#0b1115] dark:border-none duration-500">
       <CvForm :contents="contents" 
             @update-contents="updateContents" 
             @add-form="addForm"
@@ -13,7 +13,7 @@
             @add-section="addSection" />
     </div>
     
-    <div id="cv-doc" ref="document" class="w-full hidden md:flex justify-center bg-no-repeat bg-cover bg-pattern h-screen overflow-y-scroll py-20">
+    <div id="cv-doc" ref="document" class="w-full hidden md:flex justify-center bg-no-repeat bg-cover bg-pattern dark:bg-pattern-dark h-screen overflow-y-scroll py-20 duration-500">
       <CvDoc :contents="contents" />
     </div>
   </div>
@@ -111,14 +111,22 @@ export default {
       this.contents = updated
     },
     darkModeToggle(e){
+      const btn = document.querySelector('#dark-mode')
+
       if(e.target.name === 'moon'){
             e.target.name = 'sunny';
             document.documentElement.classList.add('dark')
             localStorage.theme = 'dark'
+
+            btn.classList.remove('text-[#404040]')
+            btn.classList.add('text-white')
         } else {
             e.target.name = 'moon';
             document.documentElement.classList.remove('dark')
             localStorage.theme = 'light'
+
+            btn.classList.remove('text-white')
+            btn.classList.add('text-[#404040]')
         }
     },
     exportPDF(){

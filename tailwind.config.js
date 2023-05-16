@@ -10,9 +10,9 @@ module.exports = {
       },
       backgroundImage: {
         'pattern': "url('/src/assets/media/doc-bg.svg')",
+        'pattern-dark': "url('/src/assets/media/dark-doc-bg.svg')",
       },
     },
   },
   plugins: [],
 }
-

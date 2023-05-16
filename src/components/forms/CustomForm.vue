@@ -1,15 +1,16 @@
 <template>
     <div :id="section.title.toLowerCase() + '-' + section_index" v-if="section.toggle">
-        <div class="sub-form">
+        <div class="sub-form dark:border-[#364150]">
             <div :key="index" v-for="(form, index) in section.forms">
 
                 <div className="form-control">
                     <div class="flex items-center justify-between">
-                        <label htmlFor='title'>Header</label>
+                        <label class="dark:text-gray-300" htmlFor='title'>Header</label>
                         <ion-icon name="close-circle" class="text-2xl text-gray-300 hover:text-red-500 text-xl cursor-pointer ml-[14px] min-w-[20px] min-h-[20px]" @click="onDeleteForm(section, index)"></ion-icon>
                     </div>
             
                     <input :id="section.title.toLowerCase() + '-header-' + index" 
+                           class="dark:bg-[#171e25] dark:text-white"
                            :value='form.header' 
                            type='text' 
                            placeholder='Header' 
@@ -18,8 +19,9 @@
                 </div>
 
                 <div className="form-control">
-                    <label htmlFor='description'>Description</label>
+                    <label class="dark:text-gray-300" htmlFor='description'>Description</label>
                     <textarea :id="section.title.toLowerCase() + '-description-' + index"
+                              class="dark:bg-[#171e25] dark:text-white"
                               :value='form.description' 
                               placeholder='Write a description for your custom section here...' 
                               @input="onInput($event, form, 'description')" 
@@ -27,8 +29,9 @@
                 </div>
 
                 <div className="form-control">
-                    <label htmlFor='from'>From</label>
-                    <input :id="section.title.toLowerCase() + '-from-' + index" 
+                    <label class="dark:text-gray-300" htmlFor='from'>From</label>
+                    <input :id="section.title.toLowerCase() + '-from-' + index"
+                           class="dark:bg-[#171e25] dark:text-white"
                            :value='form.from' 
                            type='text'  
                            @input="onInput($event, form, 'from')" 
@@ -36,8 +39,9 @@
                 </div>
 
                 <div className="form-control">
-                    <label htmlFor='to'>To</label>
+                    <label class="dark:text-gray-300" htmlFor='to'>To</label>
                     <input :id="section.title.toLowerCase() + '-to-' + index" 
+                           class="dark:bg-[#171e25] dark:text-white"
                            :value='form.to' 
                            type='text'
                            @input="onInput($event, form, 'to')" 
@@ -45,8 +49,9 @@
                 </div>
 
                 <div className="form-control">
-                    <label htmlFor='link'>Link</label>
-                    <input :id="section.title.toLowerCase() + '-link-' + index" 
+                    <label class="dark:text-gray-300" htmlFor='link'>Link</label>
+                    <input :id="section.title.toLowerCase() + '-link-' + index"
+                           class="dark:bg-[#171e25] dark:text-white"
                            :value='form.link' 
                            type='text'
                            placeholder='https://example.com' 

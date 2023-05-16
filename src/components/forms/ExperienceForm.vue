@@ -1,39 +1,42 @@
 <template>
   <div id="experience-form" v-if="toggles['experience']">
-    <div class="sub-form">
+    <div class="sub-form dark:border-[#364150]">
       <div :key="exp.id" v-for="exp in contents.experience">
         <div class="form-control">
 
           <div class="flex items-center justify-between">
-            <label htmlFor='company'>Company</label>
+            <label class="dark:text-gray-300" htmlFor='company'>Company</label>
             <ion-icon name="close-circle" class="text-gray-300 hover:text-red-500 text-xl cursor-pointer ml-[14px] min-w-[16px] min-h-[16px]" @click="onDeleteForm('experience', exp.id)"></ion-icon>
           </div>
 
           <input :id="'company-' + exp.id"
-                  :data-id="exp.id" 
-                  data-input="company" 
-                  :value='exp.company' 
-                  type='text' 
-                  placeholder='Example Co' 
-                  @input="onInput($event, 'experience')" 
+                 class="dark:bg-[#171e25] dark:text-white"
+                 :data-id="exp.id" 
+                 data-input="company" 
+                 :value='exp.company' 
+                 type='text' 
+                 placeholder='Example Co' 
+                 @input="onInput($event, 'experience')" 
               />
           </div>
 
           <div className="form-control">
-            <label htmlFor='position'>Position</label>
+            <label class="dark:text-gray-300" htmlFor='position'>Position</label>
             <input :id="'position-' + exp.id" 
-                  :data-id="exp.id" 
-                  data-input="position" 
-                  :value='exp.position' 
-                  type='text' 
-                  placeholder='Position' 
-                  @input="onInput($event, 'experience')" 
+                   class="dark:bg-[#171e25] dark:text-white"
+                   :data-id="exp.id" 
+                   data-input="position" 
+                   :value='exp.position' 
+                   type='text' 
+                   placeholder='Position' 
+                   @input="onInput($event, 'experience')" 
               />
           </div>
 
           <div className="form-control">
-            <label htmlFor='company-description'>Description</label>
+            <label class="dark:text-gray-300" htmlFor='company-description'>Description</label>
             <textarea :id="'description-' + exp.id"
+                      class="dark:bg-[#171e25] dark:text-white"
                       :data-id="exp.id" 
                       data-input="description" 
                       :value='exp.description' 
@@ -43,24 +46,26 @@
           </div>
 
           <div className="form-control">
-            <label htmlFor='from_comp'>From</label>
+            <label class="dark:text-gray-300" htmlFor='from_comp'>From</label>
             <input :id="'from-comp-' + exp.id"
-                  :data-id="exp.id" 
-                  data-input="from_comp" 
-                  :value='exp.from_comp' 
-                  type='text' 
-                  @input="onInput($event, 'experience')" 
+                   class="dark:bg-[#171e25] dark:text-white"
+                   :data-id="exp.id" 
+                   data-input="from_comp" 
+                   :value='exp.from_comp' 
+                   type='text' 
+                   @input="onInput($event, 'experience')" 
               />
           </div>
 
           <div className="form-control">
-            <label htmlFor='to_comp'>To</label>
+            <label class="dark:text-gray-300" htmlFor='to_comp'>To</label>
             <input :id="'to-comp-' + exp.id"
-                  :data-id="exp.id"
-                  data-input="to_comp" 
-                  :value='exp.to_comp'  
-                  type='text' 
-                  @input="onInput($event, 'experience')" 
+                   class="dark:bg-[#171e25] dark:text-white"
+                   :data-id="exp.id"
+                   data-input="to_comp" 
+                   :value='exp.to_comp'  
+                   type='text' 
+                   @input="onInput($event, 'experience')" 
               />
           </div>
           <hr v-if="exp.id !== contents.experience[contents.experience.length - 1].id" class="border border-[1.5px] rounded-md border-[#f1f4f6] my-8">
