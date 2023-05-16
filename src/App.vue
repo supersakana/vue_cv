@@ -13,9 +13,11 @@
               @add-section="addSection" />
     </div>
     
-    <div id="cv-doc" ref="document" class="w-full hidden md:block justify-center bg-no-repeat bg-cover bg-pattern dark:bg-pattern-dark h-screen overflow-y-scroll py-20 duration-500">
-      <button class="button-bg px-4 py-2 font-bold text-white rounded-3xl duration-500 block mx-auto mb-5" @click="exportPDF">Download PDF</button>
-      <CvDoc :contents="contents" />
+    <div id="cv-doc" class="w-full hidden md:block justify-center bg-no-repeat bg-cover bg-pattern dark:bg-pattern-dark h-screen overflow-y-scroll py-20 duration-500">
+      <button class="button-bg px-4 py-2 font-bold text-white rounded-3xl duration-500 block mx-auto mb-5 mt-[-15px]" @click="exportPDF">Download PDF</button>
+      <div ref="document" class="shadow-lg p-3 m-3 w-[8in] h-[10.5in] bg-white p-[24px] font-roboto m-auto">
+        <CvDoc :contents="contents" />
+      </div>
     </div>
   </div>
 </template>
@@ -29,7 +31,7 @@ function defaults(form, id){
   const data = {
     education: {
       id: id,
-      university: 'University of Virginia',
+      university: 'University of Example',
       degree: 'Degree Title',
       from_uni: 'September 2018',
       to_uni: 'May 2022',
@@ -134,11 +136,11 @@ export default {
       // https://stackoverflow.com/questions/60204249/cannnot-convert-html-code-to-pdf-with-vue-html2pdf
       // https://stackoverflow.com/questions/69705309/jspdf-html2canvas-losing-spaces-and-misaligning-text-generally
       html2pdf(this.$refs.document, {
-					margin: 1,
+					margin: 0.05,
 					filename: 'document.pdf',
-					image: { type: 'jpeg', quality: 0.98 },
-					html2canvas: { dpi: 192, letterRendering: true },
-					jsPDF: { unit: 'in', format: 'letter', orientation: 'landscape' }
+					image: { type: 'jpeg', quality: 1 },
+					html2canvas: { dpi: 192, letterRendering: true, scale: 2 },
+					jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
 				})
     }
   },
@@ -149,10 +151,10 @@ export default {
         email: 'johndoe@example.com',
         phone: '+1 (234)-567-890',
         location: 'Virginia Beach, VA',
-        bio: 'Self-motivated and innovative software developer with excellent communication and problem-solving skills. Confident in collaborative environments.',
-        linkedin: 'linkedin.com/in/zac-williamson-95b47214b',
-        twitter: 'twitter.com/zaxwilliamson',
-        github: 'github.com/supersakana',
+        bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Fusce ut placerat orci nulla pellentesque.',
+        linkedin: '',
+        twitter: '',
+        github: '',
         instagram: '',
         facebook: '',
         skills: ['HTML', 'CSS', 'JavaScript', 'Ruby', 'Ruby on Rails', 'RSpec', 'WordPress', 'Divi', 'Elementor', 'Vue', 'Tailwind', 'Git', 'GitHub'],

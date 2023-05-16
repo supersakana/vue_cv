@@ -1,5 +1,5 @@
 <template>
-  <div class="shadow-lg p-3 m-3 w-[8in] h-[11in] bg-white p-[24px] font-roboto m-auto">
+  <div>
     <!-- General -->
       <div class="text-center break-words flex flex-col gap-y-2">
         <p class="text-[30px]">{{ contents.name }}</p>
@@ -13,27 +13,22 @@
         <!-- Socials -->
         <div class="flex justify-center gap-x-3 flex-wrap">
           <div v-if="contents.linkedin !== ''" class="flex items-center justify-center gap-x-1">
-            <ion-icon name="logo-linkedin"></ion-icon>
             <a class="text-[12px] hover:underline" :href="contents.linkedin">{{ contents.linkedin }}</a>
           </div>
 
           <div v-if="contents.twitter !== ''" class="flex items-center justify-center gap-x-1">
-            <ion-icon name="logo-twitter"></ion-icon>
             <a class="text-[12px] hover:underline" :href="contents.twitter">{{ contents.twitter }}</a>
           </div>
 
           <div v-if="contents.github !== ''" class="flex items-center justify-center gap-x-1">
-            <ion-icon name="logo-github"></ion-icon>
             <a class="text-[12px] hover:underline" :href="contents.github">{{ contents.github }}</a>
           </div>
 
           <div v-if="contents.instagram !== ''" class="flex items-center justify-center gap-x-1">
-            <ion-icon name="logo-instagram"></ion-icon>
             <a class="text-[12px] hover:underline" :href="contents.instagram">{{ contents.instagram }}</a>
           </div>
 
           <div v-if="contents.facebook !== ''" class="flex items-center justify-center gap-x-1">
-            <ion-icon name="logo-facebook"></ion-icon>
             <a class="text-[12px] hover:underline" :href="contents.facebook">{{ contents.facebook }}</a>
           </div>
         </div>
