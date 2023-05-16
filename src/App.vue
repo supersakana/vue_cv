@@ -1,6 +1,6 @@
 <template>
   <div class="flex">
-    <ion-icon id="dark-mode" class="absolute right-0 text-3xl my-6 mx-5 text-[#404040] cursor-pointer hover:text-[#808080] duration-500" name="moon" @click="darkModeToggle($event)"></ion-icon>
+    <ion-icon id="dark-mode" class="absolute right-0 text-3xl my-6 mx-5 text-[#404040] cursor-pointer dark:hover:text-white opacity-50 hover:opacity-100 duration-500 z-1" name="moon" @click="darkModeToggle($event)"></ion-icon>
 
     <div class="w-full md:max-w-[450px] font-poppins border-r bg-white dark:bg-[#0b1115] dark:border-none duration-500">
       <CvForm :contents="contents" 
@@ -13,7 +13,8 @@
               @add-section="addSection" />
     </div>
     
-    <div id="cv-doc" ref="document" class="w-full hidden md:flex justify-center bg-no-repeat bg-cover bg-pattern dark:bg-pattern-dark h-screen overflow-y-scroll py-20 duration-500">
+    <div id="cv-doc" ref="document" class="w-full hidden md:block justify-center bg-no-repeat bg-cover bg-pattern dark:bg-pattern-dark h-screen overflow-y-scroll py-20 duration-500">
+      <button class="button-bg px-4 py-2 font-bold text-white rounded-3xl duration-500 block mx-auto mb-5" @click="exportPDF">Download PDF</button>
       <CvDoc :contents="contents" />
     </div>
   </div>

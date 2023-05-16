@@ -1,5 +1,5 @@
 <template>
-  <div class="shadow-lg p-3 m-3 w-[8in] h-[11in] bg-white p-[24px] font-roboto">
+  <div class="shadow-lg p-3 m-3 w-[8in] h-[11in] bg-white p-[24px] font-roboto m-auto">
     <!-- General -->
       <div class="text-center break-words flex flex-col gap-y-2">
         <p class="text-[30px]">{{ contents.name }}</p>
