@@ -2,7 +2,7 @@
   <div class="flex">
     <ion-icon id="dark-mode" class="absolute right-0 text-3xl my-6 mx-5 text-[#404040] cursor-pointer dark:hover:text-white opacity-50 hover:opacity-100 duration-500 z-1" name="moon" @click="darkModeToggle($event)"></ion-icon>
 
-    <div class="w-full md:max-w-[450px] font-poppins border-r bg-white dark:bg-[#0b1115] dark:border-none duration-500">
+    <div id="cv-form" class="w-full md:max-w-[450px] font-poppins border-r bg-white dark:bg-[#0b1115] dark:border-none duration-500">
       <CvForm :contents="contents" 
               @update-contents="updateContents" 
               @add-form="addForm"
@@ -14,10 +14,17 @@
     </div>
     
     <div id="cv-doc" class="w-full hidden md:block justify-center bg-no-repeat bg-cover bg-pattern dark:bg-pattern-dark h-screen overflow-y-scroll py-20 duration-500">
-      <button class="button-bg px-4 py-2 font-bold text-white rounded-3xl duration-500 block mx-auto mb-5 mt-[-15px]" @click="exportPDF">Download PDF</button>
+      <button class="button-bg px-4 py-2 font-bold text-white rounded-3xl duration-500 block mx-auto mb-5 mt-[-15px]" @click="exportPDF">
+        Download PDF
+      </button>
       <div ref="document" class="shadow-lg p-3 m-3 w-[8in] h-[10.5in] bg-white p-[24px] font-roboto m-auto">
         <CvDoc :contents="contents" />
       </div>
+    </div>
+
+    <div @click="previewToggle" id="view-toggler" class="bg-emerald-500 font-poppins button-bg shadow-[#909090] shadow-lg w-[90px] h-[90px] flex flex-col items-center justify-center text-white text-sm rounded-full fixed bottom-2 right-2 md:bottom-4 md:right-6 font-bold z-2 cursor-pointer">
+      <ion-icon id="preview-icon" class="text-xl" name="eye"></ion-icon>
+      <span id="preview-text">Preview</span> 
     </div>
   </div>
 </template>
@@ -133,8 +140,6 @@ export default {
         }
     },
     exportPDF(){
-      // https://stackoverflow.com/questions/60204249/cannnot-convert-html-code-to-pdf-with-vue-html2pdf
-      // https://stackoverflow.com/questions/69705309/jspdf-html2canvas-losing-spaces-and-misaligning-text-generally
       html2pdf(this.$refs.document, {
 					margin: 0.05,
 					filename: 'document.pdf',
@@ -142,6 +147,25 @@ export default {
 					html2canvas: { dpi: 192, letterRendering: true, scale: 2 },
 					jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
 				})
+    },
+    previewToggle(){
+       const icon = document.querySelector('#preview-icon')
+       const text = document.querySelector('#preview-text')
+       const form = document.querySelector('#cv-form')
+       const doc = document.querySelector('#cv-doc')
+
+       if( icon.name === 'eye'){
+        icon.name = 'pencil'
+        text.innerText = 'Edit'
+        form.classList.add('hidden')
+        window.innerWidth < 767 && doc.classList.remove('hidden')
+        
+       } else {
+        icon.name = 'eye'
+        text.innerText = 'Preview'
+        form.classList.remove('hidden')
+        window.innerWidth < 767 && doc.classList.add('hidden')
+       }
     }
   },
   data(){
