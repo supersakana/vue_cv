@@ -13,11 +13,11 @@
               @add-section="addSection" />
     </div>
     
-    <div id="cv-doc" class="w-full hidden md:block justify-center bg-no-repeat bg-cover bg-pattern dark:bg-pattern-dark h-screen overflow-y-scroll py-20 duration-500">
-      <button class="button-bg px-4 py-2 font-bold text-white rounded-3xl duration-500 block mx-auto mb-5 mt-[-15px]" @click="exportPDF">
+    <div id="cv-doc" class="hidden w-full md:block bg-no-repeat bg-cover bg-pattern dark:bg-pattern-dark h-screen overflow-y-scroll py-20 duration-500">
+      <button class="button-bg mx-auto px-4 py-2 font-bold text-white rounded-3xl duration-500 block mb-5 mt-[-15px]" @click="exportPDF">
         Download PDF
       </button>
-      <div ref="document" class="shadow-lg p-3 m-3 w-[8in] h-[10.5in] bg-white p-[24px] font-roboto m-auto">
+      <div ref="document" class="max-w-[8in] h-[10.5in]  scale-75 lg:scale-100 shadow-lg p-3 mx-auto bg-white p-[24px] mt-[-125px] lg:mt-0 font-roboto">
         <CvDoc :contents="contents" />
       </div>
     </div>

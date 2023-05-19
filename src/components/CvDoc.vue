@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="w-full">
     <!-- General -->
       <div class="text-center break-words flex flex-col gap-y-2">
-        <p class="text-[30px]">{{ contents.name }}</p>
+        <p class="text-[2rem]">{{ contents.name }}</p>
         <p class="px-[54px]">{{ contents.bio }}</p>
         <div class="flex justify-center gap-x-4">
           <p>{{ contents.location }}</p>
