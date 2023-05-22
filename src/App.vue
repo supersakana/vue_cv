@@ -13,7 +13,7 @@
               @add-section="addSection" />
     </div>
     
-    <div id="cv-doc" class="hidden w-full md:block bg-no-repeat bg-cover bg-pattern dark:bg-pattern-dark h-screen overflow-y-scroll py-20 duration-500">
+    <div id="cv-doc" class="hidden md:block w-full bg-no-repeat bg-cover bg-pattern dark:bg-pattern-dark h-screen overflow-y-scroll py-20 duration-500">
       <button class="button-bg mx-auto px-4 py-2 font-bold text-white rounded-3xl duration-500 block mb-5 mt-[-15px]" @click="exportPDF">
         Download PDF
       </button>
@@ -157,16 +157,16 @@ export default {
        if( icon.name === 'eye'){
         icon.name = 'pencil'
         text.innerText = 'Edit'
+        doc.classList.remove('hidden')
         form.classList.add('hidden')
-        window.innerWidth < 767 && doc.classList.remove('hidden')
-        
        } else {
         icon.name = 'eye'
         text.innerText = 'Preview'
+        doc.classList.add('hidden')
         form.classList.remove('hidden')
-        window.innerWidth < 767 && doc.classList.add('hidden')
        }
-    }
+       this.preview = !this.preview
+    },
   },
   data(){
     return {
@@ -186,7 +186,7 @@ export default {
         experience: [defaults('experience', '0')],
         custom: []
       },
-      sliders: ['skills', 'education', 'experience']
+      preview: 'true'
     }
   },
 }
