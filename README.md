@@ -37,3 +37,5 @@ This is my first personal project built with Vue. I was inspired by [EasyResume'
 - PDF export does not display properly when too much content is added to doc
 
 - Content overflows doc if too much is added
+
+- Doc Preview page does not look the best on mobile view.
