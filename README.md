@@ -6,7 +6,7 @@ A simple resume builder created with Vue
 
 ## About
 
-This is my first personal project built with Vue. I was inspired by [EasyResume's](https://app.easyresume.io/) UX/UI so some of the features/design are similar. Definatly feel more comfertable working with Vue than before this project. Nextime, I get to work on organizing my methods better, breaking down sections of my app into more components, and responsive design. Overall, this was a fun one and I look forward to getting better wieth Vue in the future!
+This is my first personal project built with Vue. I was inspired by [EasyResume's](https://app.easyresume.io/) UX/UI so some of the features/design are similar. Definatly feel more comfertable working with Vue than before this project. Nextime, I get to work on organizing my methods better, breaking down sections of my app into more components, and responsive design. Overall, this was a fun one and I look forward to getting better with Vue in the future!
 
 ## Features
 
